@@ -23,10 +23,9 @@
         <%- include("partials/navbar") %>
     </header>
     <main>
-        <!-- landing -->
         <div id="landing-main-div">
             <div class="landing-main-left">
-                <p class="title-para"><span class="title"><%= session.SESSION_NAME %> </span><span class="sub-title">by <%= session.TNAME %></span></p>
+                <p class="title-para"><span class="title"><%= session.SESSION_NAME %> </span><span class="sub-title"><%= session.TNAME %></span></p>
                 <div class="points-div">
                     <div class="points-top">
                         <div class="points-common">
@@ -47,7 +46,7 @@
                             </div>
                             <div class="points">
                                 <div><img src='/images/Duration.png'></div>
-                                <p class="points-text">50 Minutes</p>
+                                <p class="points-text">45 Minutes</p>
                             </div>
                             <div class="points">
                                 <div><img src='/images/Graph.png'></div>
@@ -63,13 +62,13 @@
                         <p class="points-title"><img style="margin-right: 20px;" src='/images/right.png'>Suitable/ Beneficial for these people</p>  
                         <div class="points-recommended">
                             <% session.FP.forEach(fp => { %>
-                                <p class="points-text points">• <%= fp %></p>
+                                <p class="points-text points"><%= fp %></p>
                             <% }) %>
                         </div>
                         <p class="points-title"><img style="margin-right: 20px;" src='/images/wrong.png'>Not advisable for these People</p> 
                         <div class="points-not-recommended">
                             <% session.NFP.forEach(nfp => { %>
-                                <p class="points-text points">• <%= nfp %></p>
+                                <p class="points-text points"><%= nfp %></p>
                             <% }) %>
                         </div>
                     </div>
@@ -90,15 +89,10 @@
                     <span class="dot"></span>
                     <span class="dot"></span>
                 </div>
-                <div style="text-align: center">
-                    <button
-                    onclick="bookGroupSession()"
-                    id="book-now"
-                    type="button"
-                    class="btn"
-                    >
-                    Book Now
-                  </button></div>
+                <div class="enroll-div">
+                    <a class="enroll-btn" onclick="bookGroupSession()" >Enroll For Free</a>
+                    <a class="personalisation-text">Want Personalisation ?</a>
+                </div>
             </div>
         </div>
 
@@ -151,17 +145,97 @@
         </script>
         <!-- landing (END)-->
 
+        <div class="instructor-div">
+            <div class="trainer">
+                <img src="/images/yogaInstructor.png" alt="trainer" style="margin-right: 20px;"/>
+                <div class="trainer-details">
+                    <p style="text-align: start;font-family: Montserrat; font-style: normal; font-weight: normal; font-size: 14px; line-height: 22px; color: #716E6E;">Trainer</p>
+                    <p style="text-align: start;font-family: Montserrat; font-style: normal; font-weight: normal; font-size: 16px; line-height: 22px; color: #4CA9EE;"><%= session.TNAME %></p>
+                </div>
+            </div>
+            <img src="/images/like.png" alt="like" style="width: 28px; height: 25px"/>
+        </div>
+
+        <div class="page-navbar">
+            <p class="navbar-option active-option" id="overview">Overview</p>
+            <p class="navbar-option" id="about">About</p>
+            <p class="navbar-option" id="preparation">Benefits</p>
+        </div>
+
+        <div id="overview-div" style="margin-bottom: 50px">
+            <div class="points-top">
+                <div class="points-common">
+                    <div class="points">
+                        <div>
+                            <p class="rupees">₹</p>
+                        </div>
+                        <p class="points-text"><%= session.PRICE %> INR <span style="font-weight: 100;font-size: 16px;line-height: 22px;">Per Month</span></p>
+                    </div>
+                    <div class="points">
+                        <div><img src='/images/calendar.png'></div>
+                        <div></div>
+                        <p class="points-text">Every <%= session.DAYS.toString() %></p>
+                    </div>
+                    <div class="points">
+                        <div><img src='/images/Clock.png'></div>
+                        <p class="points-text"><%= session.TIME %></p>
+                    </div>
+                    <div class="points">
+                        <div><img src='/images/Duration.png'></div>
+                        <p class="points-text">45 Minutes</p>
+                    </div>
+                    <div class="points">
+                        <div><img src='/images/Graph.png'></div>
+                        <p class="points-text"><%= session.LEVEL %> Level</p>
+                    </div>
+                    <div class="points">
+                        <div><img src='/images/people.png'></div>
+                        <p class="points-text"><%= session.PARTICIPANTS %> People </p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="points-bottom">
+                <p class="points-title"><img style="margin-right: 20px;" src='/images/right.png'>Suitable/ Beneficial for these people</p>  
+                <div class="points-recommended">
+                    <% session.FP.forEach(fp => { %>
+                        <p class="points-text points"><%= fp %></p>
+                    <% }) %> 
+                </div>
+                <p class="points-title"><img style="margin-right: 20px;" src='/images/wrong.png'>Not advisable for these People</p> 
+                <div class="points-not-recommended">
+                    <% session.NFP.forEach(nfp => { %>
+                        <p class="points-text points"><%= nfp %></p>
+                    <% }) %>
+                </div>
+            </div>
+            <div style="margin: 32px 8vw 0 8vw;">
+                <p class="preparation-title">Overview</p>
+            </div>
+        </div>
+
         <!-- about -->
         <div id="about-div">
             <p class="about-title">About the Session </p>
-            <p class="about-content"><%= session.ABOUT %></p>
             <div class="about-sub-div">
                 <p class="about-sub-title">Main Practices</p>
+                <ol type="1">
+                    <li>Malasana Lateral Stretch + Twist</li>
+                    <li>Sivananda Surya Namaskar x 3 Rounds</li>
+                    <li>Uttana Pristhasana + Twist</li>
+                    <li>Prasarita Padottanasana C</li>
+                    <li>Ardha Shalabhasana</li>
+                    <li>Supta Virasana</li>
+                    <li>Gomukasana Fold Forward + Twist</li>
+                    <li>Kandharasana</li>
+                    <li>Nadi Shodhan Pranayama</li>
+                    <li>AUM Chanting</li>
+                </ol>
                 <p class="about-sub-title">Benefits</p>
                 <ol type="1">
-                    <% session.BENEFITS.forEach(bf => { %>
-                        <li><%= bf %></li>
-                    <% }) %>
+                    <li>Malasana Lateral Stretch + Twist</li>
+                    <li>Sivananda Surya Namaskar x 3 Rounds</li>
+                    <li>AUM Chanting</li>
                 </ol>
             </div>
         </div>
@@ -170,8 +244,6 @@
         <!-- preparation -->
         <div id="preparation-div">
             <p class="preparation-title">How to prepare for session ?</p>
-            <p class="preparation-content">Join Anil and Gaurav for this Hatha Yoga for Beginners session, which addresses all the 6 movements of the spine, with a clear focus on breath and alignment. This class increases your flexibility,balance and endurance, while promoting overall
-                well being.</p>
             <div class="preparation-sub-div">
                 <p class="preparation-sub-title">Main Practices</p>
                 <ol type="1">
@@ -190,15 +262,14 @@
         </div>
         <!-- preparation (END)-->
 
-        <!-- login div -->
-            <%- include("partials/login-form") %>
-        <!-- login div (END) -->
-
-
+                  <!-- login div -->
+                    <%- include('partials/login-form') %>
+                  <!-- login div (END) -->
     </main>
     <script type="text/javascript" src="/js/landing.js"></script>
     <script type="text/javascript" src="/js/slider.js"></script>
     <script type="text/javascript" src="/js/login.js"></script>
+    <script type="text/javascript" src="/js/detailed-page-navbar.js"></script>
 </body>
 
 </html>
