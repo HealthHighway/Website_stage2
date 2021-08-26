@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/new_navbar.css">
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/search-fliter.css">
+    <link rel="stylesheet" href="/css/footer_old.css" />
+    <title>Health Highway | Search for Group Sessions</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+</head>
+
+<body>
+    <header>
+        <%- include("partials/navbar") %>
+    </header>
+    <main>
+        <!-- Search-Filter (Start) -->
+        <div class="grp-session-container">
+          <br><br><br><br><br>
+            <!-- <div class="tags-container">
+                <button id="fitness" class="tag">Fitness</button>
+                <button id="Yoga for kids" class="tag">Hypertension</button>
+                <button id="Diabetes" class="tag">Diabetes</button>
+                <button id="Obesity" class="tag">Obesity</button>
+                <button id="Trending" class="tag">Trending</button>
+            </div> -->
+            
+            <div class="trending-classes-container">
+                <div class="trending-heading">
+                    <img src="/images/trending2.svg" alt="" />
+                    <h2>Trending Group Sessions</h2>
+                </div>
+                <div class="trending-classes">
+                    <% sessions.forEach(session => { %>
+                        <a href="/Group-Yoga-Classes/<%= session._id %>">
+                            <div class="grp-card">
+                                <div>
+                                    <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
+                                </div>
+                                <div class="grp-card-content">
+                                    <div class="grp-card-details">
+                                        <div class="grp-card-title">
+                                            <h3><%= session.SESSION_NAME %></h3>
+                                            <p><%= session.TIME %></p>
+                                        </div>
+                                        <h4>by Yogacharya <%= session.TNAME %></h4>
+                                    </div>
+                                    <div class="grp-card-trust">
+                                        <img src="/images/man-vector.svg" alt="" />
+                                        <h4>Trusted by <%= session.PARTICIPANTS %>+ people</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+        <!-- Search-Filter (End) -->
+
+        <!-- USP Section (START) -->
+        <section id="usp" class="usp-section">
+            <div class="usp-one">
+                <img src="/images/dgsUsp1.svg" alt="yoga for everyone" />
+                <div class="left-item">
+                    <h3 class="usp-heading"><span>Enjoy various group activites</span></h3>
+                    <p class="usp-content">
+                        Make your Yoga journey more pleasant with group activities and challenges every session.
+                    </p>
+                </div>
+            </div>
+            <div class="usp-two">
+                <img src="/images/dgsUsp2.svg" alt="yoga for everything" />
+                <div class="right-item">
+                    <h3 class="usp-heading"><span>Enhance your fitness circles</span></h3>
+                    <p class="usp-content">
+                        Practice Yoga in a group of like-minded people who share your fitness concerns.
+                    </p>
+                </div>
+            </div>
+            <div class="usp-three">
+                <img src="/images/dgsUsp3.svg" alt="yoga for everytime" />
+                <div class="left-item">
+                    <h3 class="usp-heading"><span>Choice of Groups</span></h3>
+                    <p class="usp-content">
+                        Availability of male, female and mixed groups so you can practice Yoga in a comfortable environment.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- USP Section (END) -->
+
+        <%- include('partials/video') %>
+
+        <!-- Testimonials -->
+
+        <%- include('partials/testimonials') %>
+
+        <!-- Swiper JS -->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".myTestimonialSwiper", {
+                spaceBetween: 20,
+                // loop:true,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+
+        <!-- Testimonials(end) -->
+
+        <!-- Call-Us Section  -->
+        <%- include('partials/callback') %>
+        <!-- Call-Us Section (END) -->
+
+        </div>
+
+
+    </main>
+
+    <!-- login div -->
+    <%- include('partials/login-form') %>
+    <!-- login div (END) -->
+
+        <footer></footer>
+
+        <script src="/js/search.js"></script>
+        <script src="/js/landing.js"></script>
+        <script type="text/javascript" src="/js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+
+.login-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.4s;
+  backdrop-filter: blur(5px);
+  z-index: 200;
+}
+
+.bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navBlur {
+  z-index: -1 !important;
+}
+
+.login-modal {
+  background-color: #fff;
+  width: 422px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 100;
+  border-radius: 15px;
+  height: auto;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  cursor: pointer;
+  color: #B2B2B2;
+}
+
+.loginBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 32px;
+  height: auto;
+}
+
+.loginLogo {
+  margin-top: 32px;
+  width: 120px;
+  height: 80px;
+}
+
+.loginLogoText {
+  font-size: 2rem;
+  margin-top: 14px;
+}
+
+.loginInput {
+  background-color: transparent;
+  border-bottom: 2px solid #ccc;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+  margin-top: 50px;
+  width: 300px;
+}
+
+.loginInputBar {
+  border: none;
+  outline: none;
+  font-size: 1.4rem;
+  width: 200px;
+}
+
+.loginInputBar::-webkit-input-placeholder {
+  font-size: 1rem;
+}
+
+.loginButton {
+  margin-top: 32px;
+  border-color: #4ca9ee;
+  color: #fff !important;
+  padding: 8px 35px !important;
+  border-radius: 20px !important;
+  transition: 0.3s ease;
+  background-color: #4ca9ee !important;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 22px;
+  width: 300px;
+  font-size: 1.4rem;
+  height: 42px;
+}
+
+.loginCondition {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 32px;
+  width: 300px;
+}
+
+.loginContinueButton {
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #4ca9ee;
+  width: 300px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 15px !important;
+  margin-top: 25px;
+  box-shadow: 1px 1px 3px #a5d4f8;
+  display: flex;
+  justify-content:center;
+}
+
+.loginImageSideView,
+.loginImage {
+  cursor: pointer;
+  border-color: #4ca9ee;
+  padding: 8px 35px !important;
+  border-radius: 20px !important;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  background-color:white;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.google {
+  margin-right: 12px;
+}
+
+#OTP {
+  width: 422px;
+  height: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  display: none;
+}
+
+.fa-angle-left {
+  color: #4ca9ee;
+}
+
+.OTPText {
+  margin-left: 20px;
+  color: rgb(0, 0, 0);
+  font-size: 1.6rem;
+  letter-spacing: 0px;
+  font-weight: bold;
+}
+
+.OTPTitle {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 80px;
+  position: absolute;
+  margin-left: 32px;
+  margin-top: 20px;
+}
+
+.enterText {
+  font-size: 18px;
+  width: 360px;
+  text-align: center;
+  line-height: 32px;
+  margin-top: 100px;
+}
+
+.otp {
+	position: relative;
+	margin: 15px auto 10px auto;
+}
+
+.otp fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+
+.otp fieldset div {
+	display: flex;
+	align-items: center;
+}
+
+input[type="number"] {
+	 width: 26px;
+  height: 33px;
+  margin:0 2px;
+  border:none;
+  border-bottom: 2px solid black;
+  padding: 0;
+  color: black;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 30px;
+  box-shadow: none;
+  text-align: center;
+  background-color:none;
+  font-weight: 600;
+  border-radius: 0;
+  outline:0;
+  transition: border .3s ease;
+	text-align: center;
+	appearance: textfield;
+	-webkit-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]:nth-child(n+4) {
+	order: 2;
+}
+
+.OTPPara {
+  font-family: Open Sans;
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 25px;
+text-align: center;
+margin-top: 25px;
+}
+
+.phone {
+  color: #4ca9ee;
+  text-decoration: 1px underline #4ca9ee;  
+}
+
+@media only screen and (max-width: 540px) {
+  .login-modal {
+    width: 360px;
+  }
+  .loginInput {
+    width: 240px;
+  }
+  .loginInputBar {
+    width: 160px;
+  }
+  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+    width: 260px;
+  }
+  .loginCondition {
+    width: 260px;
+  }
+  
+  .OTPTitle {
+    margin-left: 1px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .login-modal {
+    width: 360px;
+  }
+  .loginInput {
+    width: 240px;
+  }
+  .loginInputBar {
+    width: 120px;
+  }
+  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+    width: 240px;
+  }
+  .loginCondition {
+    width: 240px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .login-modal {
+    width: 320px;
+  }
+  .loginInput {
+    width: 260px;
+  }
+  .loginInputBar {
+    width: 180px;
+  }
+  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+    width: 260px;
+  }
+  .loginCondition {
+    width: 260px;
+  }
+  .loginContinueButton, .loginButton{
+    font-size: 16px;
+  }
+  .loginLogoText {
+    font-size: 1.6rem;
+  }
+  .otp-container input {
+    width: 22px;
+    height: 30px;
+  }
+  .OTPActive {
+    height: 460px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .OTPActive {
+    height: 470px;
+  }
+  .login-modal {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .login-modal {
+    width: 270px;
+  }
+  .loginInput {
+    width: 190px;
+  }
+  .loginInputBar {
+    width: 110px;
+  }
+  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+    width: 220px;
+  }
+  .loginCondition {
+    width: 220px;
+  }
+  .loginContinueButton, .loginButton{
+    font-size: 16px;
+  }
+  .loginLogoText {
+    font-size: 1.6rem;
+  }
+  .otp-container input {
+    width: 22px;
+    height: 30px;
+  }
+  .OTPActive {
+    height: 460px;
+  }
+}

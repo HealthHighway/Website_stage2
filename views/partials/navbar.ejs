@@ -1,0 +1,167 @@
+<div class="nav-landing">
+    <nav class="navbar navbar-expand-lg navbar-light" id="navbar-landing" style="
+    position: fixed;
+    width: 100vw !important;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  ">
+        <div id="navbar-container" class="container-fluid navbar-container-unscrolled">
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo.svg" alt="Health Highway Logo" />
+                <div class="logo-text">
+                    <span style="color: #4ca9ee" class="logo-span">Health</span>
+                    <span style="color: #29e7cd" class="logo-span"> Highway</span>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" onclick="openNav()">
+      <!-- <span class="navbar-toggler-icon"></span> -->
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li style="margin-right: 40px" class="nav-item">
+                        <a href="./blogs/blogs.html" onclick="scrolltofunc('unique-main-div')" style="
+              font-family: 'Roboto', sans-serif;
+              font-size: 14px;
+              font-weight: 500;
+              color: #4ca9ee;
+              cursor: pointer;
+            " class="nav-link">Blogs</a
+          >
+        </li>
+        <li style="margin-right: 40px" class="nav-item">
+          <a
+            onclick="scrolltofunc('services-main-div')"
+            style="
+              font-family: 'Roboto', sans-serif;
+              font-size: 14px;
+              font-weight: 500;
+              color: #4ca9ee;
+              cursor: pointer;
+            "
+            class="nav-link"
+            >Support</a
+          >
+        </li>
+        <li style="margin-right: 40px" class="nav-item">
+          <a
+            onclick="scrolltofunc('feedback-main-starting')"
+            style="
+              font-family: 'Roboto', sans-serif;
+              font-size: 14px;
+              font-weight: 500;
+              color: #4ca9ee;
+              cursor: pointer;
+            "
+            class="nav-link"
+            >About Us</a
+          >
+        </li>
+        <% if(_id.length == 0){ %>
+          <button
+              id="landing-joinus"
+              type="button"
+              class="btn btn-light"
+              onclick="modalOpenFunction();"
+            >
+              Join Us
+          </button>
+        <% }else{ %>
+          <button
+              id="landing-joinus"
+              type="button"
+              class="btn btn-light"
+              onclick="location.href='/my-profile'"
+            >
+              My Profile
+          </button>
+        <% } %>
+       
+        <!-- <% if(_id.length == 0){ %>
+          <div id="open">
+              <a class="loginImage nav-link" id="loginImageLg" 
+                onclick="modalOpenFunction();"
+                style="font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+                font-weight: 500;
+                color: #4ca9ee;
+                cursor: pointer;
+                border: 2px solid #4CA9EE;
+              ">
+              Login
+              </a>
+          </div>
+        <% }else { %>
+          <div id="open">
+            <a class="loginImage nav-link" 
+            href="/my-profile"
+            style="font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #4ca9ee;
+            cursor: pointer;
+            border: 2px solid #4CA9EE;
+          ">
+           Hello
+          </a>
+        </div>
+        <% } %> -->
+        
+      </ul>
+    </div>
+    <!-- sidebar overlay -->
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="sidenav-container">
+      
+            <a href="./blogs/blogs.html" style="color: #fff; cursor: pointer">Blogs</a>
+            <a style="color: #fff; cursor: pointer">Support</a>
+            <a style="color: #fff; cursor: pointer">About Us</a>
+            <% if(_id.length == 0){ %>
+              <button
+                  id="landing-joinus"
+                  type="button"
+                  class="btn btn-light"
+                  onclick="modalOpenFunction();"
+                >
+                  Join Us
+              </button>
+            <% }else{ %>
+              <button
+                  id="landing-joinus"
+                  type="button"
+                  class="btn btn-light"
+                  onclick="location.href='/my-profile'"
+                >
+                  My Profile
+              </button>
+            <% } %>
+        
+            <!-- <% if(_id.length == 0){ %>
+              <a class="loginImage nav-link" id="loginImageSm" 
+              onclick="modalOpenFunction();"
+              style="font-size: 14px;
+              font-weight: 300;
+              color: #fff;
+              cursor: pointer;
+              border: 2px solid #fff;
+              background-color: #4CA9EE;
+            ">Login</a>  
+            <%}else { %>
+              <a class="loginImage nav-link" 
+              href="/my-profile"
+              style="font-size: 14px;
+              font-weight: 300;
+              color: #fff;
+              cursor: pointer;
+              border: 2px solid #fff;
+              background-color: #4CA9EE;
+            ">Hello</a>  
+            <% } %> -->
+                 
+        </div>
+        </div>
+        </div>
+    </nav>
+</div>

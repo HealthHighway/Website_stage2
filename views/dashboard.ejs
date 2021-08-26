@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <title>Username - Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/footer_old.css" />
+    <link rel="stylesheet" href="/css/payment-success.css">
+    <link rel="stylesheet" href="/css/pricing.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/new_navbar.css" />
+    <link rel="stylesheet" href="/css/fix_budget.css" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/onSiteForm.css" />
+    <link rel="stylesheet" href="/css/footer_old.css" />
+    <link rel="stylesheet" href="/css/search-fliter.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+  </head>
+
+  <body>
+    <header>
+    </header>
+    <main>
+      <section class="mobile-version">
+        <h2>Download our App</h2>
+        <a href="#" class="download-btn">Download</a>
+      </section>
+      <section class="dashboard">
+        <!-- Tiles  -->
+        <div class="title-filter">
+          <h1>Dashboard</h1>
+        </div>
+        <div class="tiles">
+          <div class="message-tile">
+            <h5>My Name : Vyom Gupta</h5><br>
+            <h5>My Email : vyomgupta456@gmail.com</h5><br>
+            <h5>My Name : Vyom Gupta</h5><br>
+          </div>
+        </div>
+      </section>
+
+      
+      <div class="trending-classes">
+        <% GROUP.forEach(session => { %>
+          <a>
+              <div class="grp-card">
+                  <div>
+                      <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
+                  </div>
+                  <div class="grp-card-content">
+                      <div class="grp-card-details">
+                          <div class="grp-card-title">
+                              <h3><%= session.SESSION_NAME %></h3>
+                              <p><%= session.TIME %></p>
+                          </div>
+                          <h4>by Yogacharya <%= session.TNAME %></h4>
+                      </div>
+                      <div class="grp-card-trust">
+                          <img src="/images/man-vector.svg" alt="" />
+                          <h4>Trusted by <%= session.PARTICIPANTS %>+ people</h4>
+                      </div>
+                  </div>
+              </div>
+          </a>
+      <% }) %>
+      </div>
+      
+
+  
+
+      <!-- login div -->
+             
+      <!-- login div (END) -->
+    </main>
+    <footer></footer>
+    
+    <script type="text/javascript" src="js/landing.js"></script>
+  </body>
+</html>

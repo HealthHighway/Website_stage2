@@ -1,0 +1,181 @@
+#new-landing-ad
+{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 850px;
+    background-image: url('../images/adLanding.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    text-align: left;
+    background-position-x: 0px;
+    background-position-y: 100%;
+    /* background-clip: padding-box; */
+    /* background-origin: content-box */
+}
+
+#new-landing-ad-header
+{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    color: #fff;
+    font-size: 50px;
+}
+
+#new-landing-ad-text
+{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 400;
+    color: #fff;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 1300px)
+{
+    #new-landing-ad
+    {
+        width: 100vw;
+        height: 800px;
+    }
+    
+    #new-landing-ad-header
+    {
+        font-size: 44px;
+        padding: 0px 60px;
+    }
+    
+    #new-landing-ad-text
+    {
+        font-size: 18px;
+        padding: 0px 60px;
+    }
+}
+
+@media only screen and (max-width: 1050px)
+{
+    #new-landing-ad-header
+    {
+        font-size: 40px;
+        padding: 0px 60px;
+    }
+    
+    #new-landing-ad-text
+    {
+        font-size: 18px;
+        padding: 0px 60px;
+    }
+}
+
+@media only screen and (max-width: 991px)
+{
+    #new-landing-ad-header
+    {
+        font-size: 38px;
+    }
+
+    #new-landing-ad-text
+    {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 800px)
+{
+    #new-landing-ad
+    {
+        background-image: url('../images/adLanding-med.png');
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 630px)
+{
+    #new-landing-ad
+    {
+        background-image: url('../images/adLanding-mobi.png');
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px)
+{
+    #new-landing-ad-header
+    {
+        font-size: 35px;
+    }
+
+    #new-landing-ad-text
+    {
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 550px)
+{
+    #new-landing-ad-header
+    {
+        font-size: 35px;
+        padding: 0px 40px;
+    }
+
+    #new-landing-ad-text
+    {
+        font-size: 17px;
+        padding: 0px 40px;
+    }
+}
+
+@media only screen and (max-width: 500px)
+{
+    #new-landing-ad
+    {
+        width: 100vw;
+        height: 70vh;
+        /* background-size: contain; */
+    }
+    #new-landing-ad-header
+    {
+        font-size: 30px;
+    }
+
+    #new-landing-ad-text
+    {
+        font-size: 17px;
+        padding: 10px 30px;
+    }
+}
+
+@media only screen and (max-width: 463px)
+{
+    #new-landing-ad-header
+    {
+        font-size: 30px;
+        padding: 0px 20px;
+    }
+
+    #new-landing-ad-text
+    {
+        font-size: 17px;
+        padding: 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 400px)
+{
+    #new-landing-ad-header
+    {
+        font-size: 22px;
+        padding: 0px 20px;
+    }
+
+    #new-landing-ad-text
+    {
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+}

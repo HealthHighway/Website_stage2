@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/new_navbar.css">
+    <link rel="stylesheet" href="/css/freeYoga/landingDiv.css">
+    <link rel="stylesheet" href="/css/freeYoga/aboutDiv.css">
+    <link rel="stylesheet" href="/css/freeYoga/preparationDiv.css">
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/footer_old.css" />   
+    <title>Health Highway | Your Yoga Buddy</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+</head>
+
+<body>
+    <header>
+        <%- include("partials/navbar") %>
+    </header>
+    <main>
+        <!-- landing -->
+        <div id="landing-main-div">
+            <div class="landing-main-left">
+                <p class="title-para"><span class="title"><%= session.SESSION_NAME %> </span><span class="sub-title">by <%= session.TNAME %></span></p>
+                <div class="points-div">
+                    <div class="points-top">
+                        <div class="points-common">
+                            <div class="points">
+                                <div>
+                                    <p class="rupees">₹</p>
+                                </div>
+                                <p class="points-text"><%= session.PRICE %> INR <span style="font-weight: 100;font-size: 16px;line-height: 22px;">Per Month</span></p>
+                            </div>
+                            <div class="points">
+                                <div><img src='/images/calendar.png'></div>
+                                <div></div>
+                                <p class="points-text">Every <%= session.DAYS.toString() %></p>
+                            </div>
+                            <div class="points">
+                                <div><img src='/images/Clock.png'></div>
+                                <p class="points-text"><%= session.TIME %></p>
+                            </div>
+                            <div class="points">
+                                <div><img src='/images/Duration.png'></div>
+                                <p class="points-text">50 Minutes</p>
+                            </div>
+                            <div class="points">
+                                <div><img src='/images/Graph.png'></div>
+                                <p class="points-text"><%= session.LEVEL %> Level</p>
+                            </div>
+                            <div class="points">
+                                <div><img src='/images/people.png'></div>
+                                <p class="points-text"><%= session.PARTICIPANTS %> People </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="points-bottom">
+                        <p class="points-title"><img style="margin-right: 20px;" src='/images/right.png'>Suitable/ Beneficial for these people</p>  
+                        <div class="points-recommended">
+                            <% session.FP.forEach(fp => { %>
+                                <p class="points-text points">• <%= fp %></p>
+                            <% }) %>
+                        </div>
+                        <p class="points-title"><img style="margin-right: 20px;" src='/images/wrong.png'>Not advisable for these People</p> 
+                        <div class="points-not-recommended">
+                            <% session.NFP.forEach(nfp => { %>
+                                <p class="points-text points">• <%= nfp %></p>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="landing-main-right">
+                <div class="slides fade">
+                    <img src="/images/fitnessYoga.png">
+                </div>
+                <div class="slides fade">
+                    <img src="/images/fitnessYoga.png">
+                </div>
+                <div class="slides fade">
+                    <img src="/images/fitnessYoga.png">
+                </div>
+                <div class="dot-container">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <div style="text-align: center">
+                    <button
+                    onclick="bookGroupSession()"
+                    id="book-now"
+                    type="button"
+                    class="btn"
+                    >
+                    Book Now
+                  </button></div>
+            </div>
+        </div>
+
+        <script>
+            const bookGroupSession = async () => {
+                const _id = '<%- _id %>';
+                if(_id.length == 0)
+                {
+                    alert("please Login First");
+                }
+                else
+                {
+                    var old_group = <%- JSON.stringify(GROUP) %>;
+                    console.log(old_group);
+                    var present = false;
+                    old_group.forEach(data => {
+                        if(data.GRPID === '<%- session._id %>'){
+                            present = true;
+                        }
+                    })
+                    if(present)
+                    {
+                        alert("You are Already Enrolled in this Group Session, Please Head on to Profile to Attend Session")
+                    }
+                    else
+                    {
+                        const response = await fetch("/create-group", {
+                            method  :"POST",
+                            mode : "same-origin",
+                            headers : {
+                            'Content-type' : 'application/json'
+                            },
+                            body : JSON.stringify({GRPID : '<%- session._id %>', USERID : '<%- _id %>', STARTING_DATE : new Date().toString()})
+                        });
+                        const decode = await response.json();
+                        console.log(decode);
+                        if(decode.verified)
+                        {
+                            alert("Congratulations!, Your Group Session is Booked with Health Highway")
+                        }
+                        else
+                        {
+                            alert("Some Network Problem, please try later")
+                        }
+                        location.reload();
+                    }
+                    
+                }
+            }
+        </script>
+        <!-- landing (END)-->
+
+        <!-- about -->
+        <div id="about-div">
+            <p class="about-title">About the Session </p>
+            <p class="about-content"><%= session.ABOUT %></p>
+            <div class="about-sub-div">
+                <p class="about-sub-title">Main Practices</p>
+                <p class="about-sub-title">Benefits</p>
+                <ol type="1">
+                    <% session.BENEFITS.forEach(bf => { %>
+                        <li><%= bf %></li>
+                    <% }) %>
+                </ol>
+            </div>
+        </div>
+        <!-- about (END) -->
+
+        <!-- preparation -->
+        <div id="preparation-div">
+            <p class="preparation-title">How to prepare for session ?</p>
+            <p class="preparation-content">Join Anil and Gaurav for this Hatha Yoga for Beginners session, which addresses all the 6 movements of the spine, with a clear focus on breath and alignment. This class increases your flexibility,balance and endurance, while promoting overall
+                well being.</p>
+            <div class="preparation-sub-div">
+                <p class="preparation-sub-title">Main Practices</p>
+                <ol type="1">
+                    <li>Malasana Lateral Stretch + Twist</li>
+                    <li>Sivananda Surya Namaskar x 3 Rounds</li>
+                    <li>Uttana Pristhasana + Twist</li>
+                    <li>Prasarita Padottanasana C</li>
+                    <li>Ardha Shalabhasana</li>
+                    <li>Supta Virasana</li>
+                    <li>Gomukasana Fold Forward + Twist</li>
+                    <li>Kandharasana</li>
+                    <li>Nadi Shodhan Pranayama</li>
+                    <li>AUM Chanting</li>
+                </ol>
+            </div>
+        </div>
+        <!-- preparation (END)-->
+
+        <!-- login div -->
+            <%- include("partials/login-form") %>
+        <!-- login div (END) -->
+
+
+    </main>
+    <script type="text/javascript" src="/js/landing.js"></script>
+    <script type="text/javascript" src="/js/slider.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
+</body>
+
+</html>
