@@ -22,6 +22,13 @@
     <script src="https://cdn.jsdelivr.net/npm/color-calendar/dist/bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
+    <style>
+        @media only screen and (max-width: 500px) {
+        #recaptcha-verifier {
+            transform:scale(0.8);-webkit-transform:scale(0.8);align-self: center!important;
+        }
+        }
+    </style>
 </head>
 
 <body>
@@ -220,8 +227,8 @@
                                 <p id="osf-invalid-weight">Please enter weight.</p>
                             </div>
                             <div class="height-div">
-                                <label for="age_input">Height (in cms)</label>
-                                <input type="text" placeholder="Height..." id="osf-height" required inputmode="numeric">
+                                <label for="age_input">Height (in inch)</label>
+                                <input type="text" placeholder="Height..." id="osf-height" required>
                                 <p id="osf-invalid-height">Please enter height.</p>
                             </div>
                             <p class="pref">Preferred Trainer</p>

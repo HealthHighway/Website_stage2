@@ -166,7 +166,7 @@ osf_form_basic.addEventListener('submit', (e) => {
     if (weight.length == 0 || Number(weight) <= 0 || isNaN(weight)) {
         document.getElementById('osf-invalid-weight').style.display = "block";
     }
-    if (height.length == 0 || Number(height) <= 0 || isNaN(height)) {
+    if (height.length == 0) {
         document.getElementById('osf-invalid-height').style.display = "block";
     } else {
         osf_goToStage(osf_contact)

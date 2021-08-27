@@ -1,81 +1,91 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 
 #about-div {
-    margin-left: auto;
-    margin-right: 6vw;
-    margin-top: 70px;
-    width: 40vw;
+  margin-left: auto;
+  margin-right: 6vw;
+  margin-top: 70px;
+  width: 40vw;
 }
 
 .about-title {
-    font-family: Open Sans;
-font-style: normal;
-font-weight: bold;
-font-size: 32px;
-line-height: 44px;
-color: #333741;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 44px;
+  color: #333741;
 }
 
 .about-sub-div {
-    margin-left: 10%;
+  margin-left: 10%;
 }
 
 .about-content {
-    font-family: Open Sans;
-font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 22px;
-color: #5A6885;
-margin-top: 25px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  color: #5a6885;
+  margin-top: 25px;
 }
 
 .about-sub-title {
-    font-family: Open Sans;
-font-style: normal;
-font-weight: 600;
-font-size: 22px;
-line-height: 30px;
-color: #333741;
-margin-top: 25px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  color: #333741;
+  margin-top: 25px;
 }
 
 ol {
-    margin-top: 12px;
+  margin-top: 12px;
 }
 
 @media only screen and (max-width: 900px) {
-    #about-div {
-        margin-right: 8vw;
-        width: 56vw;
-    }
+  #about-div {
+    margin-right: 8vw;
+    width: 56vw;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    #about-div {
-        width: 84vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        float:none;
-        margin: 70px 8vw 0 8vw;
-    }
-    .about-title, .about-content {
-        text-align: start;
-    }
+  #about-div {
+    width: 84vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    float: none;
+    margin: 70px 8vw 0 8vw;
+  }
+  .about-title,
+  .about-content {
+    text-align: start;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-    #about-div {
-        display: none;
-        margin-bottom: 50px;
-    }
+  #about-div {
+    display: none;
+    margin-bottom: 50px;
+  }
+  .about-content,
+  li {
+    font-size: 12px;
+  }
+  .about-sub-title,
+  .about-title {
+    font-size: 16px;
+    line-height: 10px;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-    #about-div {
-        margin: 70px 10vw 50px 10vw;
-        width: 80vw;
-    }
+  #about-div {
+    margin: 70px 10vw 50px 10vw;
+    width: 80vw;
+  }
 }

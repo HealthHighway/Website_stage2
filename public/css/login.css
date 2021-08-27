@@ -1,3 +1,4 @@
+  
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 
 .login-modal-bg {
@@ -277,7 +278,7 @@ margin-top: 25px;
 
 @media only screen and (max-width: 420px) {
   .login-modal {
-    width: 360px;
+    width: 320px;
   }
   .loginInput {
     width: 240px;
@@ -295,7 +296,7 @@ margin-top: 25px;
 
 @media only screen and (max-width: 360px) {
   .login-modal {
-    width: 320px;
+    width: 300px;
   }
   .loginInput {
     width: 260px;
@@ -329,13 +330,13 @@ margin-top: 25px;
     height: 470px;
   }
   .login-modal {
-    width: 300px;
+    width: 280px;
   }
 }
 
 @media only screen and (max-width: 300px) {
   .login-modal {
-    width: 270px;
+    width: 250px;
   }
   .loginInput {
     width: 190px;

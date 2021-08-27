@@ -67,8 +67,8 @@ loginContinue.onclick = function() {
 	}
 	else
 	{
+		document.getElementById("loginContinue").style.pointerEvents="auto";
 		alert("Please Enter Correct Mobile Number");
-		location.reload();
 	}
 };
 
