@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 
 #about-div {
-  margin-left: auto;
-  margin-right: 6vw;
   margin-top: 70px;
   width: 40vw;
 }
@@ -21,11 +19,11 @@
 }
 
 .about-content {
-  font-family: Open Sans;
+  font-family: Montserrat;
   font-style: normal;
-  font-weight: 600;
+  font-weight: normal;
   font-size: 16px;
-  line-height: 22px;
+  line-height: 20px;
   color: #5a6885;
   margin-top: 25px;
 }
@@ -44,23 +42,44 @@ ol {
   margin-top: 12px;
 }
 
-@media only screen and (max-width: 900px) {
+.details-div {
+  display: flex;
+  padding: 120px 10vw;
+}
+
+.details-div img {
+  margin-top: 150px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .details-div {
+    padding: 80px 15vw 80px 12vw;
+  }
   #about-div {
-    margin-right: 8vw;
-    width: 56vw;
+    width: 40vw;
+  }
+  .details-div img {
+    width: 33vw;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .details-div img {
+    margin-top: 240px;
+    margin-bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #about-div {
+    width: 80vw;
+  }
+  .details-div img {
+    display: none;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  #about-div {
-    width: 84vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    float: none;
-    margin: 70px 8vw 0 8vw;
-  }
   .about-title,
   .about-content {
     text-align: start;
@@ -80,6 +99,16 @@ ol {
   .about-title {
     font-size: 16px;
     line-height: 10px;
+  }
+  .details-div {
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  #overview-div {
+    margin-top: 24px;
+  }
+  #benefits-mobile-div {
+    margin-top: -20px;
   }
 }
 

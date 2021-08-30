@@ -763,6 +763,19 @@ nav {
   }
 }
 
+@media only screen and (max-width: 480px) {
+  #landing-joinus {
+    width: 81px;
+    font-size: 14px;
+    padding: 8px 10px !important;
+    border-radius: 8px !important;
+    margin-right: 30px;
+  }
+  .loginIcon {
+    margin-right: 30px;
+  }
+}
+
 @media only screen and (max-width: 464px) {
   .navbar-brand {
     margin-left: 10px;
@@ -777,6 +790,9 @@ nav {
     font-weight: 500;
     font-size: 16px;
     margin-left: 3px;
+  }
+  #landing-joinus, .loginIcon {
+    margin-right: 10px;
   }
 }
 
@@ -808,40 +824,19 @@ nav {
     top: 13px;
     right: 27px;
   }
-  #landing-joinus {
-    padding: 8px 20px !important;
-    margin-right: 28px;
-  }
-  .loginIcon {
-    margin-right: 28px;
-  }
-}
-
-@media only screen and (max-width: 355px) {
-#landing-joinus {
-  padding: 8px 16px !important;
-  margin-right: 5px;
-}
-.loginIcon {
-  margin-right: 5px;
-}
 }
 
 @media only screen and (max-width: 330px) {
   .navbar-toggler i {
     color: #4ca9ee !important;
   }
-  #landing-joinus {
-    font-size: 14px;
-    line-height: 20px;
-  }
 }
-
 
 @media only screen and (max-width: 314px) {
   #landing-joinus {
-    padding: 8px 15px !important;
     font-size: 12px;
+    width: 60px;
+    padding: 8px 5px !important;
   }
 }
 
@@ -863,6 +858,9 @@ nav {
   }
   .sidenav .closebtn {
     right: 16px;
+  }
+  #landing-joinus {
+    width: 70px;
   }
 }
 .nav-landing {

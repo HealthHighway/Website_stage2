@@ -6,8 +6,10 @@ const atc_btns = document.querySelectorAll('.addtocart')
 const main_form = document.querySelector('.os-form')
 
 let problem = document.querySelector('#osf-problem').value;
-let currDate = ""
-
+let currDate = "";
+let HH_private_days = [];
+let HH_private_time = "";
+let private_session = {};
 
 
 //buttons
@@ -19,6 +21,7 @@ const osf_notSureBtn = document.querySelector('.osf-ns') //used
 const osf_backBtn = document.querySelector('.osf-back-button')
 const osf_finalBtn = document.querySelector('.final-btn')
 const osf_payBtn = document.querySelector('#payNow')
+const osf_closeBtn = document.querySelector('.osf-close-button')
 
 //stages
 const osf_stages = document.querySelectorAll('.osf-content') //used
@@ -44,25 +47,31 @@ const osf_form_days = document.querySelector('.day-grid') //used
 
 //other
 const buttonsdiv = document.querySelector('.buttttons') //used
+const customProgressBar = document.querySelector('.progress-bar') //used
 
 
 // btn event listeners
-atc_btns.forEach((atc_btn) => {
-    atc_btn.addEventListener('click', () => { //makes form modal visible
-        document.querySelector('.container-for-form').classList.add('active')
-        main_form.style.display = "grid"
-    })
+osf_closeBtn.addEventListener('click', () => {
+    document.querySelector('.container-for-form').classList.remove('active');
+    osf_goToStage(osf_service, '10%')
 })
+
+// atc_btns.forEach((atc_btn) => {
+//     atc_btn.addEventListener('click', () => { //makes form modal visible
+//         document.querySelector('.container-for-form').classList.add('active')
+//         main_form.style.display = "grid"
+//     })
+// })
 
 
 for (let btn of osf_ailBtns) {
     btn.addEventListener('click', () => {
-        osf_goToStage(osf_basicInfo)
+        osf_goToStage(osf_basicInfo, '40%')
     })
 }
 for (let btn of osf_serviceBtns) {
     btn.addEventListener('click', () => {
-        osf_goToStage(osf_basicInfo)
+        osf_goToStage(osf_basicInfo, '40%')
     })
 }
 
@@ -103,28 +112,30 @@ for (let btn of osf_serviceBtns) {
 ////
 
 osf_healBtn.addEventListener('click', () => {
-    osf_goToStage(osf_ailments)
+    osf_goToStage(osf_ailments, '20%')
 })
 
 osf_notSureBtn.addEventListener('click', () => {
-    osf_goToStage(osf_problem)
+    osf_goToStage(osf_problem, '30%')
 })
 
 osf_backBtn.addEventListener('click', () => {
     if (osf_isActive(osf_final)) {
-        osf_goToStage(osf_calendar)
+        osf_goToStage(osf_calendar, '80%')
     } else if (osf_isActive(osf_calendar)) {
-        osf_goToStage(osf_days);
+        osf_goToStage(osf_days, '70%');
     } else if (osf_isActive(osf_days)) {
-        osf_goToStage(osf_timing)
+        osf_goToStage(osf_timing, '60%')
     } else if (osf_isActive(osf_timing)) {
-        osf_goToStage(osf_contact)
+        osf_goToStage(osf_contact, '50%')
     } else if (osf_isActive(osf_contact)) {
-        osf_goToStage(osf_basicInfo)
+        osf_goToStage(osf_basicInfo, '40%')
     } else if (osf_isActive(osf_basicInfo)) {
-        osf_goToStage(osf_service)
+        osf_goToStage(osf_service, '10%')
     } else if (osf_isActive(osf_problem)) {
-        osf_goToStage(osf_service)
+        osf_goToStage(osf_service, '10%')
+    } else if (osf_isActive(osf_ailments)) {
+        osf_goToStage(osf_service, '10%')
     } else if (osf_isActive(osf_service)) {
         document.querySelector('.container-for-form').classList.remove('active')
     }
@@ -135,7 +146,7 @@ osf_finalBtn.addEventListener('click', () => {
     if (currDate === "" || currDate === "Invalid Date" || currDate === undefined) {
         document.getElementById('osf-invalid-date').style.display = "block"
     } else(
-        osf_goToStage(osf_final))
+        osf_goToStage(osf_final, '100%'))
 })
 
 
@@ -146,7 +157,7 @@ osf_form_problem.addEventListener('submit', (e) => {
     if (problemcustom.length <= 2) {
         document.getElementById('osf-invalid-problem').style.display = "block";
     } else {
-        osf_goToStage(osf_basicInfo)
+        osf_goToStage(osf_basicInfo, '40%')
     }
     problem = document.querySelector('#osf-problem').value
 
@@ -155,39 +166,38 @@ osf_form_basic.addEventListener('submit', (e) => {
     e.preventDefault();
     let name = document.getElementById("osf-name").value;
     let age = document.getElementById("osf-age").value;
-    let weight = document.getElementById("osf-weight").value;
-    let height = document.getElementById("osf-height").value;
+
     if (name.length <= 2) {
         document.getElementById('osf-invalid-name').style.display = "block";
     }
     if (age.length == 0 || Number(age) <= 0 || Number(age) > 100 || isNaN(age)) {
         document.getElementById('osf-invalid-age').style.display = "block";
+    } else {
+        osf_goToStage(osf_contact, '50%')
     }
+
+
+})
+osf_form_contact.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let weight = document.getElementById("osf-weight").value;
+    let height = document.getElementById("osf-height").value;
     if (weight.length == 0 || Number(weight) <= 0 || isNaN(weight)) {
         document.getElementById('osf-invalid-weight').style.display = "block";
     }
     if (height.length == 0) {
         document.getElementById('osf-invalid-height').style.display = "block";
     } else {
-        osf_goToStage(osf_contact)
+        osf_goToStage(osf_timing, '60%')
     }
-
-})
-osf_form_contact.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let contact = document.getElementById("osf-contact").value;
-    let phoneno = /^[0-9]{10}$/;
-    if (!contact.match(phoneno)) {
-        document.getElementById('osf-invalid-contact').style.display = "block";
-    } else { osf_goToStage(osf_timing) }
 })
 osf_form_timing.addEventListener('submit', (e) => {
     e.preventDefault();
-    osf_goToStage(osf_days)
+    osf_goToStage(osf_days, '70%')
 })
 osf_form_days.addEventListener('submit', (e) => {
     e.preventDefault();
-    osf_goToStage(osf_calendar)
+    osf_goToStage(osf_calendar, '80%')
 })
 
 
@@ -219,7 +229,7 @@ function osf_goToStage(stage_name, percent) {
 
 
 
-    // customProgressBar.style.minWidth = percent
+    customProgressBar.style.minWidth = percent
 
 }
 
@@ -234,23 +244,30 @@ function updating() {
     let age = document.querySelector('#osf-age').value
     let weight = document.querySelector('#osf-weight').value;
     let height = document.querySelector('#osf-height').value
-    let contact = document.querySelector('#osf-contact').value
+    private_session["NAME"] = name;
+    private_session["AGE"] = age;
+    private_session["WEIGHT"] = weight;
+    private_session["HEIGHT"] = height;
+    private_session["NOC"] = window.HH_nosmap.noc;
 
     //spans
     document.querySelector('#f-height').innerHTML = height
     document.querySelector('#f-weight').innerHTML = weight
     document.querySelector('#f-name').innerHTML = name
     document.querySelector('#f-age').innerHTML = age
-    document.querySelector('#f-contact').innerHTML = contact
+    document.querySelector('#f-noc').innerHTML = window.HH_nosmap.noc;
+
 
     //days
+    HH_private_days=[];
     var checkboxes = document.getElementsByName('days');
     checkboxes.forEach((checkbox) => {
         if (checkbox.checked) {
-            let value = document.createElement('span')
-            document.querySelector('#f-days').appendChild(value).innerHTML = checkbox.value + ", ";
+            HH_private_days.push(checkbox.value);
         }
     })
+    private_session["DAYS"] = HH_private_days;
+    document.querySelector('#f-days').innerHTML = HH_private_days.toString();
 
 
     //date
@@ -261,21 +278,69 @@ function updating() {
     var timings = document.getElementsByName('timing');
     for (i = 0; i < timings.length; i++) {
         if (timings[i].checked)
-            document.getElementById("f-time").innerHTML = timings[i].value;
+             HH_private_time = timings[i].value;
+            // document.getElementById("f-time").innerHTML = timings[i].value;
     }
+    HH_private_time = timeConvertor(HH_private_time.substring(0, 1), HH_private_time.substring(2, 4), HH_private_time.substring(5));
+    console.log(HH_private_time);
+    document.getElementById("f-time").innerHTML = HH_private_time;
+    private_session["TIMING"] = HH_private_time;
+    function timeConvertor(hrs, mins, zone){
+        var temp = "";
+        (zone == "PM")?(temp+=String(Number(hrs)+12)):(temp+=(String(hrs).length == 1)?"0"+String(hrs):String(hrs));
+        temp+=":";
+        temp+=(Number(mins) == 0)?"00":String(mins);
+        temp+=":00";
+        return temp;
+    }
+
     //problem
     document.querySelector('#f-problem').innerHTML = problem;
-
+    private_session["PROBLEM"] = problem;
+    private_session["PRICE"] = window.HH_nosmap.price;
 
     //trainer
+    var GENDER_PREF = "";
     var ele = document.getElementsByName('trainer');
     for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked)
+        if (ele[i].checked){
             document.getElementById("f-pref").innerHTML = ele[i].value;
+            GENDER_PREF = ele[i].value;
+        }
     }
-
+    private_session["GENDER_PREF"] = GENDER_PREF;
 
 }
+
+
+function makePrivateCalendar(){
+    var daySet = new Set();
+    HH_private_days.forEach(day => {
+        console.log("the week days selected are : ",day)
+        daySet.add(day);
+    })
+    var daySchedule={};
+    private_session["STARTING_DATE"] = currDate;
+    var temp = new Date(currDate);
+    console.log(temp);
+    console.log(temp.toLocaleDateString('en-GB'));
+    console.log("Starting date : ", temp.toLocaleDateString('en-GB').substring(0, 2)+"-"+temp.toLocaleDateString('en-GB').substring(3, 5)+"-"+temp.toLocaleDateString('en-GB').substring(6));
+    var count = 0;
+    while(count < window.HH_nosmap.noc){
+        console.log("before checking : ", temp.toDateString())
+        if(daySet.has(temp.toDateString().substring(0, 3))) {
+            console.log("here : ", temp);
+            daySchedule[temp.toLocaleDateString('en-GB').substring(0, 2)+"-"+temp.toLocaleDateString('en-GB').substring(3, 5)+"-"+temp.toLocaleDateString('en-GB').substring(6)] = {date : temp.toLocaleDateString('en-GB').substring(0, 2)+"-"+temp.toLocaleDateString('en-GB').substring(3, 5)+"-"+temp.toLocaleDateString('en-GB').substring(6), time : HH_private_time, sessionAttended : false}
+            count++;
+        }
+        temp = new Date(temp.setDate(temp.getDate() + 1)) 
+    }
+    console.log(daySchedule)
+    private_session["CALENDAR"] = daySchedule;
+    console.log(private_session);
+    payPrivate(private_session)
+}
+
 
 
 
@@ -1040,6 +1105,6 @@ function getDateDummy() {
     var a = myCalendar.getSelected();
     a = new Date(a);
 
-    currDate = (a.toString().substring(0, 15))
+    currDate = a.toString()
 
 }

@@ -9,30 +9,77 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/new_navbar.css">
     <link rel="stylesheet" href="/css/freeYoga/landingDiv.css">
-    <link rel="stylesheet" href="/css/freeYoga/aboutDiv.css">
-    <link rel="stylesheet" href="/css/freeYoga/preparationDiv.css">
-    <link rel="stylesheet" href="/css/login.css" />
-    <link rel="stylesheet" href="/css/footer_old.css" />   
+    <link rel="stylesheet" href="/css/freeYoga/details.css">
+    <link rel="stylesheet" href="/css/freeYoga/call.css">
+    <link rel="stylesheet" href="/css/login.css" />   
+    
     <title>Health Highway | Your Yoga Buddy</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://apis.google.com/js/api:client.js"></script>
-    <style>
-        @media only screen and (max-width: 500px) {
-        #recaptcha-verifier {
-            transform:scale(0.8);-webkit-transform:scale(0.8);align-self: center!important;
-        }
-        }
-    </style>
 </head>
 
 <body>
     <header>
-        <%- include("partials/navbar") %>
+        <div class="nav-landing">
+            <nav class="navbar navbar-expand-lg navbar-light" id="navbar-landing" style="
+            position: fixed;
+            width: 100vw !important;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+          ">
+                <div id="navbar-container" class="container-fluid navbar-container-unscrolled">
+                    <a class="navbar-brand" href="./index.html">
+                        <img src="/images/logo.svg" alt="Health Highway Logo" />
+                        <div class="logo-text">
+                            <span style="color: #4ca9ee" class="logo-span">Health</span>
+                            <span style="color: #29e7cd" class="logo-span"> Highway</span>
+                        </div>
+                    </a>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ml-auto">
+                            <li style="margin-right: 40px" class="nav-item">
+                                <a href="https://blogs.healthhighway.co.in/" onclick="scrolltofunc('unique-main-div')" style="
+                      font-family: 'Roboto', sans-serif;
+                      font-size: 14px;
+                      font-weight: 500;
+                      color: #4ca9ee;
+                      cursor: pointer;
+                    " class="nav-link">Blogs</a>
+                            </li>
+                            <li style="margin-right: 40px" class="nav-item">
+                                <a onclick="scrolltofunc('callback-section-id')" style="
+                      font-family: 'Roboto', sans-serif;
+                      font-size: 14px;
+                      font-weight: 500;
+                      color: #4ca9ee;
+                      cursor: pointer;
+                    " class="nav-link">Support</a>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <% if(_id.length == 0){ %>
+                      <button
+                          id="landing-joinus"
+                          type="button"
+                          class="btn btn-light"
+                          onclick="modalOpenFunction();"
+                        >
+                          Join Us
+                      </button>
+                    <% }else{ %>
+                      <button onclick="alert('Hey!!, You are logged in')" class="loginIcon" style="border: none!important; background-color: #fff!important; cursor: pointer;" >
+                          <img src="/images/user.png" alt="user"/>
+                      </button>
+                    <% } %>
+                </div>
+            </nav>
+          </div>
     </header>
     <main>
+        <!-- landing -->
         <div id="landing-main-div">
             <div class="landing-main-left">
-                <p class="title-para"><span class="title"><%= session.SESSION_NAME %> </span><span class="sub-title"><%= session.TNAME %></span></p>
+                <p class="title-para"><span class="title">Fitness Yoga </span><span class="sub-title">by Norah Fatehi</span></p>
                 <div class="points-div">
                     <div class="points-top">
                         <div class="points-common">
@@ -82,14 +129,14 @@
                 </div>
             </div>
             <div class="landing-main-right">
-                <div class="slides fade">
-                    <img src="/images/fitnessYoga.png">
+                <div class="slides fade" style="overflow: hidden;border-radius: 15px;" >
+                    <img src=<%= session.IMG %> >
                 </div>
                 <div class="slides fade">
-                    <img src="/images/fitnessYoga.png">
+                    <img src=<%= session.IMG %> >
                 </div>
                 <div class="slides fade">
-                    <img src="/images/fitnessYoga.png">
+                    <img src=<%= session.IMG %> >
                 </div>
                 <div class="dot-container">
                     <span class="dot"></span>
@@ -97,8 +144,12 @@
                     <span class="dot"></span>
                 </div>
                 <div class="enroll-div">
-                    <a class="enroll-btn" onclick="bookGroupSession()" >Enroll For Free</a>
-                    <a class="personalisation-text">Want Personalisation ?</a>
+                    <% if(session.PARTICIPANTS >= session.LIMIT){ %>
+                        <a class="enroll-btn" >Session Overbooked</a>
+                    <% }else { %> 
+                        <a class="enroll-btn" onclick="bookGroupSession()" >Enroll For Free</a>
+                    <% } %>
+                    <a href="/1-on-1-Pricing-Plan" class="personalisation-text">Want Personalisation ?</a>
                 </div>
             </div>
         </div>
@@ -154,7 +205,7 @@
 
         <div class="instructor-div">
             <div class="trainer">
-                <img src="/images/yogaInstructor.png" alt="trainer" style="margin-right: 20px;"/>
+                <img src=/images/yogaInstructor.png alt="trainer" style="margin-right: 20px;"/>
                 <div class="trainer-details">
                     <p style="text-align: start;font-family: Montserrat; font-style: normal; font-weight: normal; font-size: 14px; line-height: 22px; color: #716E6E;">Trainer</p>
                     <p style="text-align: start;font-family: Montserrat; font-style: normal; font-weight: normal; font-size: 16px; line-height: 22px; color: #4CA9EE;"><%= session.TNAME %></p>
@@ -166,10 +217,10 @@
         <div class="page-navbar">
             <p class="navbar-option active-option" id="overview">Overview</p>
             <p class="navbar-option" id="about">About</p>
-            <p class="navbar-option" id="preparation">Benefits</p>
+            <p class="navbar-option" id="benefits">Benefits</p>
         </div>
 
-        <div id="overview-div" style="margin-bottom: 50px">
+        <div id="overview-div">
             <div class="points-top">
                 <div class="points-common">
                     <div class="points">
@@ -207,7 +258,7 @@
                 <div class="points-recommended">
                     <% session.FP.forEach(fp => { %>
                         <p class="points-text points"><%= fp %></p>
-                    <% }) %> 
+                    <% }) %>
                 </div>
                 <p class="points-title"><img style="margin-right: 20px;" src='/images/wrong.png'>Not advisable for these People</p> 
                 <div class="points-not-recommended">
@@ -218,12 +269,46 @@
             </div>
             <div style="margin: 32px 8vw 0 8vw;">
                 <p class="preparation-title">Overview</p>
+                <p class="preparation-content"><%= session.ABOUT %></p>
             </div>
         </div>
 
+        <div class="details-div">
         <!-- about -->
         <div id="about-div">
+                <p class="about-title">About the Session </p>
+                <p class="preparation-content"><%= session.ABOUT %></p>
+                <div class="about-sub-div">
+                    <p class="about-sub-title">Main Practices</p>
+                    <ol type="1">
+                        <li>Malasana Lateral Stretch + Twist</li>
+                        <li>Sivananda Surya Namaskar x 3 Rounds</li>
+                        <li>Uttana Pristhasana + Twist</li>
+                        <li>Prasarita Padottanasana C</li>
+                        <li>Ardha Shalabhasana</li>
+                        <li>Supta Virasana</li>
+                        <li>Gomukasana Fold Forward + Twist</li>
+                        <li>Kandharasana</li>
+                        <li>Nadi Shodhan Pranayama</li>
+                        <li>AUM Chanting</li>
+                    </ol>
+                    <p class="about-sub-title">Benefits</p>
+                    <ol type="1">
+                        <li>Malasana Lateral Stretch + Twist</li>
+                        <li>Sivananda Surya Namaskar x 3 Rounds</li>
+                        <li>AUM Chanting</li>
+                        <li>Supta Virasana</li>
+                        <li>Gomukasana Fold Forward + Twist</li>
+                        <li>Kandharasana</li>
+                        <li>Nadi Shodhan Pranayama</li>
+                        <li>AUM Chanting</li>
+                    </ol>
+                </div>
+        </div>
+        
+        <div id="about-mobile-div">
             <p class="about-title">About the Session </p>
+            <p class="preparation-content"><%= session.ABOUT %></p>
             <div class="about-sub-div">
                 <p class="about-sub-title">Main Practices</p>
                 <ol type="1">
@@ -238,40 +323,70 @@
                     <li>Nadi Shodhan Pranayama</li>
                     <li>AUM Chanting</li>
                 </ol>
-                <p class="about-sub-title">Benefits</p>
-                <ol type="1">
-                    <li>Malasana Lateral Stretch + Twist</li>
-                    <li>Sivananda Surya Namaskar x 3 Rounds</li>
-                    <li>AUM Chanting</li>
-                </ol>
             </div>
         </div>
+        <div id="benefits-mobile-div">
+            <p class="about-sub-title">Benefits</p>
+                    <ol type="1">
+                        <li>Malasana Lateral Stretch + Twist</li>
+                        <li>Sivananda Surya Namaskar x 3 Rounds</li>
+                        <li>AUM Chanting</li>
+                        <li>Supta Virasana</li>
+                        <li>Gomukasana Fold Forward + Twist</li>
+                        <li>Kandharasana</li>
+                        <li>Nadi Shodhan Pranayama</li>
+                        <li>AUM Chanting</li>
+                    </ol>
+        </div>
+        <img src="https://github.com/vxdhu/Healthhighway-Compiled/blob/main/images/detailImg.png?raw=true" />
         <!-- about (END) -->
-
-        <!-- preparation -->
-        <div id="preparation-div">
-            <p class="preparation-title">How to prepare for session ?</p>
-            <div class="preparation-sub-div">
-                <p class="preparation-sub-title">Main Practices</p>
-                <ol type="1">
-                    <li>Malasana Lateral Stretch + Twist</li>
-                    <li>Sivananda Surya Namaskar x 3 Rounds</li>
-                    <li>Uttana Pristhasana + Twist</li>
-                    <li>Prasarita Padottanasana C</li>
-                    <li>Ardha Shalabhasana</li>
-                    <li>Supta Virasana</li>
-                    <li>Gomukasana Fold Forward + Twist</li>
-                    <li>Kandharasana</li>
-                    <li>Nadi Shodhan Pranayama</li>
-                    <li>AUM Chanting</li>
-                </ol>
-            </div>
         </div>
-        <!-- preparation (END)-->
 
-                  <!-- login div -->
-                    <%- include('partials/login-form') %>
-                  <!-- login div (END) -->
+               <!-- Call-Us Section  -->
+               <section id="callback-section-id" class="call-back">
+                <div class="cb-text">
+                    <h2 class="call-back-head">Still Confused?</h2>
+                    <p class="call-back-text">
+                        Let us find the best yoga solution for you
+                    </p>
+                </div>
+                <div class="cb-form">
+                    <input id="phone-num" type="text" placeholder=" Phone number" />
+                    <button class="call-back-btn" type="button" onclick="submitCallback()" id="callback-id" >Schedule callBack</button>
+                </div>
+            </section>
+            <!-- Call-Us Section (END) -->
+
+            <script>
+                const submitCallback = async () => {
+                    let inputText = parseInt(document.querySelector("#phone-num").value);
+                    var regexp = /^\d{10}$/;
+                    if(regexp.test(inputText))
+                    {
+                        const response = await fetch("https://api.healthhighway.co.in/data/schedule-callback", {
+                            method  :"POST",
+                            headers : {
+                                'Content-type' : 'application/json'
+                            },
+                            body : JSON.stringify({CONTACT : "+91"+inputText})
+                        });
+                        const decode = await response.json();
+                        console.log(decode);
+                        document.getElementById("callback-id").style.pointerEvents="none";
+                        alert("Congratulations! Your Mobile Number is Registered with us. We Will Contact You Shortly");
+                        // location.reload();
+                    }
+                    else
+                    {
+                        alert("Please Enter Correct Mobile Number");
+                    }
+                }
+                
+            </script>
+
+    <footer>
+
+    </footer>
     </main>
     <script type="text/javascript" src="/js/landing.js"></script>
     <script type="text/javascript" src="/js/slider.js"></script>

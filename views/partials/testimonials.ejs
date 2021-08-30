@@ -70,3 +70,19 @@
     </div>
     <img src="/images/testimonials-images.png" alt="" />
 </section>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".myTestimonialSwiper", {
+        spaceBetween: 20,
+        loop:true,
+        autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>

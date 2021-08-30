@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/new_navbar.css" />
     <link rel="stylesheet" href="/css/login.css" />
     <link rel="stylesheet" href="/css/footer_old.css" />
+    <link rel="stylesheet" href="/css/landing-animation.css">
     <title>Health Highway | Your Yoga Buddy</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
@@ -30,38 +31,40 @@
     <main>
         <!-- landing -->
         <div id="landing-main-div">
-            <img src="images/pattern.png" class="pattern" />
-            <div class="landing-main-left">
-                <img src="images/Instructor.png" class="instructor" />
-            </div>
             <div class="landing-main-center">
                 <p class="landing-main-text1">Live Yoga Classes</p>
                 <p class="landing-main-text2">From world yoga capital to your home</p>
-                <a class="landing-main-button" href="#get-started-section">Get Started</a>
+                <a class="landing-main-button desktop" href="#get-started-section">Get Started</a>
             </div>
-            <div class="landing-main-right">
-                <img src="images/Student.png" class="student" />
-            </div>
+            <div class="animation-container">
+                <div class="animation_left"></div>
+                <div class="animation_middle">
+                  <div class="middle-line"></div>
+                </div>
+                <div class="animation_right"></div>
+              </div>
+              <script src="/js/landing-animation.js"></script>
             <div class="landing-container"></div>
         </div>
         <!-- landing (END)-->
 
         <!-- know more div (START) --> 
-        <p style="text-align: center"><a href="#usp" class="know-more">Know More</a></p>
-        <p style="text-align: center"><a href="#usp" class="know-more"><i class="fa fa-arrow-down"></i></a></p>
+        <div class="know-more-div">
+            <a class="landing-main-button mobile" href="#get-started-section">Get Started</a>
+            <p style="text-align: center"><a href="#usp" class="know-more">Know More</a></p>
+            <p style="text-align: center"><a href="#usp" class="know-more"><i class="fa fa-arrow-down"></i></a></p>
+        </div>
         <!-- know more div (END) -->
 
         <!-- About-Us Section (START) -->
         <section id="about-us" class="about-us-section">
             <h2 class="about-us-heading">
-                <span>“</span>It’s not just Health Highway , it’s Health The Highway
+                <span>“</span><span style="color: #4CA9EE;" >Train</span> with the Best, <span style="color: #29E7CD">Forget</span> the Rest
                 <span>”</span>
             </h2>
             <div class="border"></div>
             <p class="about-us-content">
-                We are a passionate group of people who aspire to find Yoga solutions to your daily fitness needs that suits <span>YOU</span>, <span>YOUR Time</span>, and <span>YOUR Lifestyle</span>.
-                 We believe there should be no compromise when it comes to Health . <br>
-                <span>Join us in the journey to a better and healthy lifestyle</span>
+                Our platform connects high-spirited, devoted yogis with users who aspire to inculcate yoga in their daily lifestyle. We have a conviction that there should be no compromise when it comes to the well being of a individual. Health Highway is a private tutor for yoga, providing reliable and efficient solutions to ease your lifestyle requirements by tailoring them to your needs, your time and your lifestyle.
             </p>
         </section>
         <!-- About-Us Section (END) -->
@@ -197,45 +200,32 @@
                 <a href="/Group-Yoga-Classes" class="get-started-btn">Get Started</a>
             </div>
         </div>
-    </section>
+      </section>
         <!-- Get Started (END) -->
 
         <!-- Events -->
         
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-        <!-- Initialize Swiper -->
-        <script>
-            var swiper = new Swiper(".mySwiper", {
-                slidesPerView: "auto",
-                spaceBetween: 40,
-                navigation: {
-                    nextEl: "#next",
-                    prevEl: "#prev",
-                },
-            });
-        </script>
+        
         <!-- Events (END) -->
 
+        <!-- Download app -->
+
+        <section class="download-app">
+            <h2 id="download-app-heading">Download <span>Health</span> <span class="highway-spn">Highway</span> App</h2>
+            <div class="download-img">
+                <img src="https://raw.githubusercontent.com/vxdhu/Healthhighway-Compiled/main/images/dwnld-app.png" alt="">
+
+            </div>
+            <p>For enhanced experience on your mobile phone</p>
+            <!-- <a href="#" class="download-now-btn">Download Now</a> -->
+        </section>
+
+        <!-- Download app (END)-->
 
         <!-- Testimonials -->
 
         <%- include('partials/testimonials') %>
 
-        <!-- Swiper JS -->
-
-        <!-- Initialize Swiper -->
-        <script>
-            var swiper = new Swiper(".myTestimonialSwiper", {
-                spaceBetween: 20,
-                // loop:true,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
-        </script>
-
-        <!-- Testimonials(end) -->
 
         <!-- Call-Us Section  -->
         <%- include('partials/callback') %>
@@ -246,13 +236,13 @@
         <!-- login div (END) -->
 
     </main>
-    <footer></footer>
 
-    <script type="text/javascript" src="js/event.js"></script>
-    <script type="text/javascript" src="js/landing.js"></script>
-    <script type="text/javascript" src="js/get-started.js"></script>
-    <script src="js/video-component.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="/js/event.js"></script>
+    <script type="text/javascript" src="/js/landing.js"></script>
+    <script type="text/javascript" src="/js/get-started.js"></script>
+    <script src="/js/video-component.js"></script>
+    <script src="/js/landing-animation.js"> </script>
+    <script type="text/javascript" src="/js/login.js"></script>
 </body>
 
 </html>

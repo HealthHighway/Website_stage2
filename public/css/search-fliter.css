@@ -226,12 +226,13 @@ a {
 .trending-classes,
 .yoga-classes {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   row-gap: 60px;
   column-gap: 50px;
   flex-wrap: wrap;
   padding: 2rem;
+  padding-left:13rem;
   margin-top: 1rem;
   z-index: 1;
 }
@@ -446,6 +447,17 @@ option {
   left: 10%;
   z-index: 4;
 }
+ @media (max-width:1110px) {
+     .filtered-result,
+.trending-classes,
+.yoga-classes {
+  padding-left: 7rem;
+}
+  .trending-heading,
+  .yoga-session-heading{
+    padding-left: 6rem;
+  }
+}
 @media (max-width: 1034px) {
   .trending-heading,
   .yoga-session-heading {
@@ -454,6 +466,22 @@ option {
   }
 }
 
+
+@media (max-width:965px) {
+     .filtered-result,
+.trending-classes,
+.yoga-classes {
+  padding-left: 3rem;
+}
+  
+}
+@media (max-width:900px) {
+     .filtered-result,
+.trending-classes,
+.yoga-classes {
+     justify-content: center;
+}
+}
 @media (max-width: 890px) {
   .time-filter {
     width: 240px;

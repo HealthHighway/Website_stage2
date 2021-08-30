@@ -416,3 +416,207 @@
 </body>
 
 </html>
+
+
+
+
+
+
+
+<div class="container-for-form">
+    <section id="onSiteForm" class="os-form">
+
+        <button class="osf-back-button"><img src="/images/arrow.png" alt="">
+        </button>
+
+        <div class="gif-and-content-grid">
+            <div class="osf-content active-state" id="choose-service">
+                <h3 class="osf-heading">Tell us about your Goals</h3>
+                <button class="osf-button osf-service" onclick="problem = 'Fitness'">Fitness</button>
+                <button class="osf-button osf-heal">Heal Ailments</button>
+                <button class="osf-button osf-service" onclick="problem = 'Mindfullness'">Mindfullness</button>
+                <button class="osf-button osf-service" onclick="problem = 'Advanced Yoga'">Advanced
+                    Yoga</button>
+
+            </div>
+
+            <div class="osf-content " id="choose-ailment">
+                <h3 class="osf-heading">Select a particular ailment</h3>
+                <div class="buttttons">
+                    <button class="osf-button osf-ail" onclick="problem = 'Diabetes'">Diabetes</button>
+                    <button class="osf-button osf-ail" onclick="problem = 'Hypertension'">Hypertension</button>
+                    <button class="osf-button osf-ail" onclick="problem = 'Eye Problems'">Eye Problems</button>
+                    <button class="osf-button osf-ail" onclick="problem = 'Bone & Joint Pain'">Bone & Joint
+                        Pain</button>
+                    <button class="osf-button osf-ail" onclick="problem = 'Thyroidism'">Thyroidism</button>
+                    <button class="osf-button osf-ail" onclick="problem = 'Breathing Issues'">Breathing
+                        Issues</button>
+                    <button class="osf-button osf-ns">Not Sure</button>
+                </div>
+            </div>
+
+            <div class="osf-content " id="not-sure">
+                <h3 class="osf-heading ">Please type your problem/Goal</h3>
+                <form action="#" class="osf-form-problem">
+                    <input type="text" placeholder="Your problem..." required id="osf-problem">
+                    <p id="osf-invalid-problem">Please provide your problem.</p>
+                    <button class="osf-button">Next</button>
+                </form>
+            </div>
+
+            <div class="osf-content " id="basic-info">
+                <h3 class="osf-heading ">Basic Information</h3>
+                <form action="#" class="osf-form-basicinfo">
+                    <div class="name-div">
+                        <label for="name_input">Your Name</label>
+                        <input type="text" placeholder="Name..." id="osf-name" required>
+                        <p id="osf-invalid-name">Please enter name.</p>
+                    </div>
+                    <div class="age-div">
+                        <label for="age_input">Your Age</label>
+                        <input type="text" placeholder="Age..." id="osf-age" required inputmode="numeric">
+                        <p id="osf-invalid-age">Please enter age.</p>
+                    </div>
+                    <div class="weight-div">
+                        <label for="age_input">Weight (in Kgs)</label>
+                        <input type="text" placeholder="Weight..." id="osf-weight" required inputmode="numeric">
+                        <p id="osf-invalid-weight">Please enter weight.</p>
+                    </div>
+                    <div class="height-div">
+                        <label for="age_input">Height (in inch)</label>
+                        <input type="text" placeholder="Height..." id="osf-height" required>
+                        <p id="osf-invalid-height">Please enter height.</p>
+                    </div>
+                    <p class="pref">Preferred Trainer</p>
+                    <div class="pref-div">
+                        <input type="radio" id="radio1" name="trainer" value="Male" checked>
+                        <label for="radio1">Male</label>
+                        <input type="radio" id="radio2" name="trainer" value="Female">
+                        <label for="radio2">Female</label>
+                    </div>
+                    <button class="osf-button">Next</button>
+                </form>
+            </div>
+
+            <div class="osf-content " id="provide-contact">
+                <h3 class="osf-heading ">Please enter your contact number</h3>
+                <form action="#" class="osf-form-contact">
+                    <input type="text" placeholder="+91" required id="osf-contact">
+                    <p id="osf-invalid-contact"> Please provide your contact...</p>
+                    <button class="osf-button">Next</button>
+                </form>
+            </div>
+
+            <div class="osf-content " id="choose-timing">
+                <h3 class="osf-heading ">Choose a time slot</h3>
+                <form class="time-grid">
+                    <input type="radio" id="t1" name="timing" value="6:00 AM" required>
+                    <label for="t1">6:00 AM</label>
+                    <input type="radio" id="t2" name="timing" value="7:00 AM">
+                    <label for="t2">7:00 AM</label>
+                    <input type="radio" id="t3" name="timing" value="8:00 AM">
+                    <label for="t3">8:00 AM</label>
+                    <input type="radio" id="t4" name="timing" value="9:00 AM">
+                    <label for="t4">9:00 AM</label>
+                    <input type="radio" id="t5" name="timing" value="4:00 PM">
+                    <label for="t5">4:00 PM</label>
+                    <input type="radio" id="t6" name="timing" value="5:00 PM">
+                    <label for="t6">5:00 PM</label>
+                    <input type="radio" id="t7" name="timing" value="6:00 PM">
+                    <label for="t7">6:00 PM</label>
+                    <input type="radio" id="t8" name="timing" value="7:00 PM">
+                    <label for="t8">7:00 PM</label>
+                    <input type="radio" id="t9" name="timing" value="8:00 PM">
+                    <label for="t9">8:00 PM</label>
+
+                    <button class="osf-button">Next</button>
+                </form>
+            </div>
+
+            <div class="osf-content " id="choose-days">
+                <h3 class="osf-heading ">Your Fitness Routine</h3>
+
+                <form class="day-grid">
+                    <input type="checkbox" id="day1" name="days" value="Mon">
+                    <label for="day1">Mon</label>
+                    <input type="checkbox" id="day2" name="days" value="Tue">
+                    <label for="day2">Tue</label>
+                    <input type="checkbox" id="day3" name="days" value="Wed">
+                    <label for="day3">Wed</label>
+                    <input type="checkbox" id="day4" name="days" value="Thu">
+                    <label for="day4">Thu</label>
+                    <input type="checkbox" id="day5" name="days" value="Fri">
+                    <label for="day5">Fri</label>
+                    <input type="checkbox" id="day6" name="days" value="Sat">
+                    <label for="day6">Sat</label>
+                    <input type="checkbox" id="day7" name="days" value="Sun">
+                    <label for="day7">Sun</label>
+
+                    <button class="osf-button">Next</button>
+                </form>
+            </div>
+            <div class="osf-content " id="fitness-calendar">
+                <h3 class="osf-heading ">Choose a starting date</h3>
+                <div id="my-calendar"></div>
+                <p id="osf-invalid-date">Please select a date</p>
+
+                <button class="osf-button final-btn" style="margin-top: 1em;" onclick="getDateDummy();">Next</button>
+
+
+
+            </div>
+
+
+            <div class="osf-content personal-session-card" id="final-card">
+                <div class="personal-card-title">
+                    <h1>Personalized Yoga session</h1>
+                    <img src="/images/payment-1.png" alt="" />
+                </div>
+                <div class="personal-session-text">
+                    <ul>
+                        <li>
+                            <img src="/images/accept.png" alt="" />
+                            <p>Problem/Goal: <span class="f-input" id="f-problem"></span></p>
+                        </li>
+                        <li>
+                            <h2>₹</h2>
+                            <p>Starting Date: <span class="f-input" id="f-date"></span></p>
+                        </li>
+                        <li>
+                            <img src="/images/alarm-clock.png" alt="" />
+                            <p>Time: <span class="f-input" id="f-time"></span></p>
+                        </li>
+                        <li>
+                            <img src="/images/Duration.png" alt="" />
+                            <p>Duration: 50 mins/Session</p>
+                        </li>
+                        <li>
+                            <img src="/images/calendar_1.png" alt="" />
+                            <p>Preferred days : <span class="f-input" id="f-days"></span></p>
+                        </li>
+                        <li>
+                            <img src="/images/bio.png" alt="" />
+                            <p>Gender pref.: <span class="f-input" id="f-pref"></span></p>
+                        </li>
+                        <li>
+                            <img src="/images/bio.png" alt="" />
+                            <p>Name: <span class="f-input" id="f-name"></span>, <span id="f-age"></span></p>
+                        </li>
+                        <li>
+                            <img src="/images/contact.png" alt="" />
+                            <p>Contact : <span class="f-input" id="f-contact"></span></p>
+                        </li>
+                        <li>
+                            <img src="/images/customer.png" alt="" />
+                            <p>Weight: <span class="f-input" id="f-weight"></span>kgs, <span class="f-input" id="f-height"></span>cms</p>
+                        </li>
+                    </ul>
+                    <button id="payNow" onclick="payPrivate()">Pay Now</button>
+                </div>
+            </div>
+
+            <div class="osf-gif"><img src="/images/yoga-se-hi-hoga.gif" alt="yogasehihoga"></div>
+        </div>
+
+    </section>
+</div>

@@ -46,29 +46,75 @@
                 </div>
                 <div class="trending-classes">
                     <% sessions.forEach(session => { %>
-                        <a href="/Group-Yoga-Classes/<%= session._id %>">
-                            <div class="grp-card">
-                                <div>
-                                    <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
-                                </div>
-                                <div class="grp-card-content">
-                                    <div class="grp-card-details">
-                                        <div class="grp-card-title">
-                                            <h3><%= session.SESSION_NAME %></h3>
-                                            <p><%= session.TIME %></p>
+                        <% if(session.ACTIVENOW){ %>
+                            <a href="/Group-Yoga-Classes/<%= session._id %>">
+                                <div class="grp-card">
+                                    <% if(session.PARTICIPANTS>=session.LIMIT){ %>
+                                        <div class="booking-status-tag red-tag">Session Over booked</div>
+                                    <% } %>
+                                   
+                                    <!-- <div> -->
+                                        <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
+                                    <!-- </div> -->
+                                    <div class="grp-card-content">
+                                        <div class="grp-card-details">
+                                            <div class="grp-card-title">
+                                                <h3><%= session.SESSION_NAME %></h3>
+                                                <p><%= session.TIME %></p>
+                                            </div>
+                                            <h4>by Yogacharya <%= session.TNAME %></h4>
                                         </div>
-                                        <h4>by Yogacharya <%= session.TNAME %></h4>
-                                    </div>
-                                    <div class="grp-card-trust">
-                                        <img src="/images/man-vector.svg" alt="" />
-                                        <h4>Trusted by <%= session.PARTICIPANTS %>+ people</h4>
+                                        <div class="grp-card-trust">
+                                            <img src="/images/man-vector.svg" alt="" />
+                                            <h4>Trusted by <%= session.PARTICIPANTS %>+ people</h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        <%} %>
+                        
                     <% }) %>
                 </div>
             </div>
+
+            <div class="trending-classes-container">
+                <div class="trending-heading">
+                    <img src="/images/trending2.svg" alt="" />
+                    <h2>Upcoming Group Sessions</h2>
+                </div>
+                <div class="trending-classes">
+                    <% sessions.forEach(session => { %>
+                        <% if(!session.ACTIVENOW){ %>
+                            <a href="/Group-Yoga-Classes/<%= session._id %>">
+                                <div class="grp-card">
+                                    <% if(session.PARTICIPANTS>=session.LIMIT){ %>
+                                        <div class="booking-status-tag red-tag">Session Over booked</div>
+                                    <% } %>
+                                   
+                                    <!-- <div> -->
+                                        <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
+                                    <!-- </div> -->
+                                    <div class="grp-card-content">
+                                        <div class="grp-card-details">
+                                            <div class="grp-card-title">
+                                                <h3><%= session.SESSION_NAME %></h3>
+                                                <p><%= session.TIME %></p>
+                                            </div>
+                                            <h4>by Yogacharya <%= session.TNAME %></h4>
+                                        </div>
+                                        <div class="grp-card-trust">
+                                            <img src="/images/man-vector.svg" alt="" />
+                                            <h4>Trusted by <%= session.PARTICIPANTS %>+ people</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        <%} %>
+                        
+                    <% }) %>
+                </div>
+            </div>
+            
         </div>
         <!-- Search-Filter (End) -->
 
@@ -110,28 +156,11 @@
 
         <%- include('partials/testimonials') %>
 
-        <!-- Swiper JS -->
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-        <!-- Initialize Swiper -->
-        <script>
-            var swiper = new Swiper(".myTestimonialSwiper", {
-                spaceBetween: 20,
-                // loop:true,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-            });
-        </script>
-
         <!-- Testimonials(end) -->
 
         <!-- Call-Us Section  -->
         <%- include('partials/callback') %>
         <!-- Call-Us Section (END) -->
-
-        </div>
 
 
     </main>
@@ -139,8 +168,6 @@
     <!-- login div -->
     <%- include('partials/login-form') %>
     <!-- login div (END) -->
-
-        <footer></footer>
 
         <script src="/js/search.js"></script>
         <script src="/js/landing.js"></script>

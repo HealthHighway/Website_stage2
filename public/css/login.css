@@ -1,4 +1,3 @@
-  
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 
 .login-modal-bg {
@@ -46,7 +45,7 @@
   top: 25px;
   right: 25px;
   cursor: pointer;
-  color: #B2B2B2;
+  color: #b2b2b2;
 }
 
 .loginBody {
@@ -82,7 +81,7 @@
   border: none;
   outline: none;
   font-size: 1.4rem;
-  width: 200px;
+  width: 232px;
 }
 
 .loginInputBar::-webkit-input-placeholder {
@@ -127,7 +126,7 @@
   margin-top: 25px;
   box-shadow: 1px 1px 3px #a5d4f8;
   display: flex;
-  justify-content:center;
+  justify-content: center;
 }
 
 .loginImageSideView,
@@ -138,7 +137,7 @@
   border-radius: 20px !important;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
-  background-color:white;
+  background-color: white;
   font-family: Open Sans;
   font-style: normal;
   font-weight: bold;
@@ -166,16 +165,16 @@
 }
 
 .OTPText {
-  margin-left: 20px;
+  margin-left: 15px;
   color: rgb(0, 0, 0);
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   letter-spacing: 0px;
   font-weight: bold;
 }
 
 .OTPTitle {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 80px;
   position: absolute;
   margin-left: 32px;
@@ -191,26 +190,26 @@
 }
 
 .otp {
-	position: relative;
-	margin: 15px auto 10px auto;
+  position: relative;
+  margin: 15px auto 10px auto;
 }
 
 .otp fieldset {
-	border: 0;
-	padding: 0;
-	margin: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .otp fieldset div {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 input[type="number"] {
-	 width: 26px;
+  width: 26px;
   height: 33px;
-  margin:0 2px;
-  border:none;
+  margin: 0 2px;
+  border: none;
   border-bottom: 2px solid black;
   padding: 0;
   color: black;
@@ -219,14 +218,14 @@ input[type="number"] {
   font-size: 30px;
   box-shadow: none;
   text-align: center;
-  background-color:none;
+  background-color: none;
   font-weight: 600;
   border-radius: 0;
-  outline:0;
-  transition: border .3s ease;
-	text-align: center;
-	appearance: textfield;
-	-webkit-appearance: textfield;
+  outline: 0;
+  transition: border 0.3s ease;
+  text-align: center;
+  appearance: textfield;
+  -webkit-appearance: textfield;
 }
 
 input::-webkit-outer-spin-button,
@@ -235,23 +234,65 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type="number"]:nth-child(n+4) {
-	order: 2;
+input[type="number"]:nth-child(n + 4) {
+  order: 2;
 }
 
 .OTPPara {
   font-family: Open Sans;
-font-style: normal;
-font-weight: bold;
-font-size: 18px;
-line-height: 25px;
-text-align: center;
-margin-top: 25px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 25px;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .phone {
   color: #4ca9ee;
-  text-decoration: 1px underline #4ca9ee;  
+  text-decoration: 1px underline #4ca9ee;
+}
+
+.loginInputBar::placeholder {
+  font-size: 0.94rem;
+}
+
+#OTPSend,
+#loginSuccess {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+}
+
+#OTPSend img,
+#loginSuccess img {
+  margin: 50px 0 20px 0;
+}
+
+#OTPSend p {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  width: 237px;
+  margin-bottom: 24px;
+}
+
+#loginSuccess p {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  color: #4ca9ee;
+  margin-bottom: 10px;
+  width: 346px;
 }
 
 @media only screen and (max-width: 540px) {
@@ -262,17 +303,57 @@ margin-top: 25px;
     width: 240px;
   }
   .loginInputBar {
-    width: 160px;
+    width: 170px;
   }
-  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+  .loginButton,
+  .loginContinueButton,
+  .OTPPara,
+  #OTP,
+  .OTPText,
+  .enterText,
+  .OTPPara {
     width: 260px;
   }
   .loginCondition {
     width: 260px;
   }
-  
+
   .OTPTitle {
     margin-left: 1px;
+  }
+  .loginInputBar::placeholder {
+    font-size: 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .loginLogo {
+    margin-top: 28px;
+    width: 100px;
+    height: 50px;
+  }
+  .loginInput {
+    margin-top: 32px;
+    font-size: 1.2rem;
+  }
+  #loginContinue {
+    margin-top: 15px;
+  }
+  .loginLogoText {
+    font-size: 1.6rem;
+  }
+  .loginButton {
+    font-size: 1.2rem;
+  }
+  .loginContinueButton {
+    font-size: 1rem;
+  }
+  .loginInputBar {
+    width: 180px;
+  }
+  #loginSuccess p {
+    font-size: 20px;
+    width: 300px;
   }
 }
 
@@ -282,15 +363,35 @@ margin-top: 25px;
   }
   .loginInput {
     width: 240px;
+    margin-top: 15px;
   }
   .loginInputBar {
-    width: 120px;
+    width: 180px;
   }
-  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+  .loginButton,
+  .loginContinueButton,
+  .OTPPara,
+  #OTP,
+  .OTPText,
+  .enterText,
+  .OTPPara {
     width: 240px;
   }
   .loginCondition {
     width: 240px;
+  }
+  .loginCondition {
+    margin-top: 20px;
+  }
+  .loginLogo {
+    width: 80px;
+    height: 40px;
+  }
+  .loginLogoText {
+    font-size: 1.4rem;
+  }
+  .loginInputBar {
+    font-size: 1.2rem;
   }
 }
 
@@ -299,38 +400,70 @@ margin-top: 25px;
     width: 300px;
   }
   .loginInput {
-    width: 260px;
+    width: 242px;
   }
   .loginInputBar {
     width: 180px;
   }
-  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+  .loginButton,
+  .loginContinueButton,
+  .OTPPara,
+  #OTP,
+  .OTPText,
+  .enterText,
+  .OTPPara {
     width: 260px;
   }
   .loginCondition {
     width: 260px;
   }
-  .loginContinueButton, .loginButton{
+  .loginContinueButton,
+  .loginButton {
     font-size: 16px;
-  }
-  .loginLogoText {
-    font-size: 1.6rem;
   }
   .otp-container input {
     width: 22px;
     height: 30px;
   }
-  .OTPActive {
-    height: 460px;
+  .loginLogoText {
+    font-size: 1.2rem;
+  }
+  #OTPSend p {
+    width: 210px;
+  }
+  #loginSuccess p {
+    font-size: 20px;
+    width: 240px;
   }
 }
 
 @media only screen and (max-width: 320px) {
-  .OTPActive {
-    height: 470px;
-  }
   .login-modal {
-    width: 280px;
+    width: 260px;
+  }
+  .loginInput {
+    width: 200px;
+  }
+  .loginInputBar {
+    width: 140px;
+  }
+  .loginButton,
+  .loginContinueButton,
+  .OTPPara,
+  #OTP,
+  .OTPText,
+  .enterText,
+  .OTPPara {
+    width: 200px;
+  }
+  .loginCondition {
+    width: 200px;
+  }
+  .loginInputBar::placeholder {
+    font-size: 0.54rem;
+  }
+  #OTPSend p {
+    width: 200px;
   }
 }
 
@@ -342,19 +475,23 @@ margin-top: 25px;
     width: 190px;
   }
   .loginInputBar {
-    width: 110px;
+    width: 130px;
   }
-  .loginButton, .loginContinueButton, .OTPPara, #OTP, .OTPText, .enterText, .OTPPara {
+  .loginButton,
+  .loginContinueButton,
+  .OTPPara,
+  #OTP,
+  .OTPText,
+  .enterText,
+  .OTPPara {
     width: 220px;
   }
   .loginCondition {
     width: 220px;
   }
-  .loginContinueButton, .loginButton{
+  .loginContinueButton,
+  .loginButton {
     font-size: 16px;
-  }
-  .loginLogoText {
-    font-size: 1.6rem;
   }
   .otp-container input {
     width: 22px;

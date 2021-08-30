@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
     socket.on('givedata', async(msg) => {
         console.log(msg);
         var options = {
-            "amount": msg.price*100 ,
+            "amount": msg.private_session.PRICE*100 ,
             "currency": "INR",
             "receipt": "Health Highway",
             "payment_capture": 1
@@ -50,7 +50,7 @@ io.on('connection', (socket) => {
                 }
             });
             console.log(data);
-             socket.emit('welcome', {paymentData : data, sessionInfo : msg});
+            socket.emit('welcome', {paymentData : data, sessionInfo : msg});
         }catch(err){
             console.log(err);
         }
