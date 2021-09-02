@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;400;500&family=Open+Sans:wght@300;600&display=swap");
 
 .login-modal-bg {
   position: fixed;
@@ -42,10 +42,27 @@
 
 .close {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  width: 25px;
+  height: 25px;
+  top: 28px;
+  right: 28px;
   cursor: pointer;
-  color: #b2b2b2;
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 25px;
+  width: 3px;
+  background-color: #b2b2b2;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
 
 .loginBody {
@@ -58,7 +75,7 @@
 }
 
 .loginLogo {
-  margin-top: 32px;
+  margin-top: 42px;
   width: 120px;
   height: 80px;
 }
@@ -66,6 +83,9 @@
 .loginLogoText {
   font-size: 2rem;
   margin-top: 14px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .loginInput {
@@ -74,6 +94,9 @@
   box-sizing: border-box;
   font-size: 1.4rem;
   margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 300px;
 }
 
@@ -92,24 +115,34 @@
   margin-top: 32px;
   border-color: #4ca9ee;
   color: #fff !important;
-  padding: 8px 35px !important;
-  border-radius: 20px !important;
+  border-radius: 15px !important;
   transition: 0.3s ease;
   background-color: #4ca9ee !important;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: bold;
-  line-height: 22px;
-  width: 300px;
-  font-size: 1.4rem;
+  width: 290px;
   height: 42px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 34px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginCondition {
-  font-size: 0.8rem;
-  font-weight: bold;
+  font-size: 10px;
+  line-height: 12px;
   margin-top: 32px;
-  width: 300px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  text-align: center;
+  width: 190px;
+  height: 24px;
 }
 
 .loginContinueButton {
@@ -127,6 +160,7 @@
   box-shadow: 1px 1px 3px #a5d4f8;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .loginImageSideView,
@@ -165,7 +199,7 @@
 }
 
 .OTPText {
-  margin-left: 15px;
+  margin-left: 10px;
   color: rgb(0, 0, 0);
   font-size: 1.2rem;
   letter-spacing: 0px;
@@ -178,7 +212,12 @@
   margin-bottom: 80px;
   position: absolute;
   margin-left: 32px;
-  margin-top: 20px;
+  margin-top: 31px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .enterText {
@@ -295,6 +334,17 @@ input[type="number"]:nth-child(n + 4) {
   width: 346px;
 }
 
+#modalBack {
+  border: solid #4ca9ee;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  height: 14px;
+  width: 14px;
+}
+
 @media only screen and (max-width: 540px) {
   .login-modal {
     width: 360px;
@@ -399,14 +449,6 @@ input[type="number"]:nth-child(n + 4) {
   .login-modal {
     width: 300px;
   }
-  .loginInput {
-    width: 242px;
-  }
-  .loginInputBar {
-    width: 180px;
-  }
-  .loginButton,
-  .loginContinueButton,
   .OTPPara,
   #OTP,
   .OTPText,
@@ -454,7 +496,7 @@ input[type="number"]:nth-child(n + 4) {
   .OTPText,
   .enterText,
   .OTPPara {
-    width: 200px;
+    width: 210px;
   }
   .loginCondition {
     width: 200px;
@@ -464,6 +506,9 @@ input[type="number"]:nth-child(n + 4) {
   }
   #OTPSend p {
     width: 200px;
+  }
+  .OTPTitle {
+    margin-top: 40px;
   }
 }
 
@@ -477,8 +522,6 @@ input[type="number"]:nth-child(n + 4) {
   .loginInputBar {
     width: 130px;
   }
-  .loginButton,
-  .loginContinueButton,
   .OTPPara,
   #OTP,
   .OTPText,
@@ -500,4 +543,17 @@ input[type="number"]:nth-child(n + 4) {
   .OTPActive {
     height: 460px;
   }
+  .OTPTitle {
+    margin-top: 32px;
+    margin-left: 10px;
+  }
+}
+
+.down-arrow {
+  border: solid #4ca9ee;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

@@ -1,4 +1,3 @@
-
 <div class="nav-landing">
   <nav class="navbar navbar-expand-lg navbar-light" id="navbar-landing" style="
   position: fixed;
@@ -7,43 +6,28 @@
 ">
       <div id="navbar-container" class="container-fluid navbar-container-unscrolled">
           <a class="navbar-brand" href="./index.html">
-              <img src="/images/logo.svg" alt="Health Highway Logo" />
+              <img src="images/logo.svg" alt="Health Highway Logo" />
               <div class="logo-text">
                   <span style="color: #4ca9ee" class="logo-span">Health</span>
                   <span style="color: #29e7cd" class="logo-span"> Highway</span>
               </div>
           </a>
-          
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                   <li style="margin-right: 40px" class="nav-item">
-                      <a href="https://blogs.healthhighway.co.in/" onclick="scrolltofunc('unique-main-div')" style="
-            font-family: 'Roboto', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: #4ca9ee;
-            cursor: pointer;
-          " class="nav-link">Blogs</a>
+                      <a href="./blogs/blogs.html" style="cursor: pointer;" onclick="scrolltofunc('unique-main-div')" 
+          class="nav-link">Blogs</a>
                   </li>
                   <li style="margin-right: 40px" class="nav-item">
-                      <a onclick="scrolltofunc('callback-section-id')" style="
-            font-family: 'Roboto', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: #4ca9ee;
-            cursor: pointer;
-          " class="nav-link">Support</a>
+                      <a onclick="scrolltofunc('services-main-div')" style="cursor: pointer;"
+          class="nav-link">Support</a>
                   </li>
-                  <li style="margin-right: 40px" class="nav-item">
-                      <a onclick="scrolltofunc('usp')" style="
-            font-family: 'Roboto', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            color: #4ca9ee;
-            cursor: pointer;
-          " class="nav-link">About Us</a>
-                  </li>
-                  
+                  <% if(_id.length == 0){ %>
+                    <li style="margin-right: 40px" class="nav-item">
+                      <a onclick="modalOpenFunction();" style="font-weight: 600 !important; cursor: pointer;"
+                        class="nav-link">Login</a>
+                    </li>
+                   <% }  %>
               </ul>
           </div>
           <% if(_id.length == 0){ %>
@@ -61,5 +45,7 @@
             </button>
           <% } %>
       </div>
+
   </nav>
 </div>
+

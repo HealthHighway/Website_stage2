@@ -1,16 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@400;600;700&family=Work+Sans:wght@500;600&display=swap");
 
 .title {
-  font-family: Open Sans;
+  font-family: Montserrat;
   font-style: normal;
-  font-weight: 700;
-  font-size: 42px;
-  line-height: 57px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 39px;
 }
 .sub-title {
-  font-family: Open Sans;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
   font-size: 24px;
-  line-height: 33px;
+  line-height: 30px;
 }
 
 #landing-main-div {
@@ -21,6 +23,14 @@
   flex-direction: row;
   padding: 120px 6vw 0 6vw;
   justify-content: space-evenly;
+}
+
+.points-text span {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .slides img {
@@ -90,11 +100,11 @@
 }
 
 .points-text {
-  font-family: Open Sans;
+  font-family: Montserrat;
   font-style: normal;
-  font-weight: 600;
+  font-weight: bold;
   font-size: 16px;
-  line-height: 27px;
+  line-height: 20px;
   color: #5a6885;
 }
 
@@ -127,6 +137,13 @@
 .points-not-recommended {
   display: flex;
   flex-wrap: wrap;
+}
+
+.points div {
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .points div:nth-child(1) {
@@ -169,12 +186,12 @@
   box-shadow: 0px 2px 10px rgba(76, 169, 238, 0.3);
   border-radius: 8px;
   width: 214px;
-  height: 55px;
+  height: 60px;
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 600;
   font-size: 19.4px;
-  line-height: 10px;
+  line-height: 24px;
   color: #ffffff;
   border-color: #4ca9ee;
   display: flex;
@@ -182,6 +199,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 20px;
 }
 
 .page-navbar {
@@ -219,7 +237,8 @@
   padding: 0 5vw;
 }
 
-.page-navbar, .instructor-div {
+.page-navbar,
+.instructor-div {
   display: none;
 }
 
@@ -228,7 +247,8 @@
   display: none;
 }
 
-#about-mobile-div, #benefits-mobile-div {
+#about-mobile-div,
+#benefits-mobile-div {
   display: none;
 }
 
@@ -244,6 +264,14 @@
   }
   .points-div {
     margin-top: 25px;
+  }
+  .personalisation-text {
+    width: 200px;
+    text-align: center;
+  }
+  .points-not-recommended,
+  .points-recommended {
+    margin-top: 15px;
   }
 }
 
@@ -291,8 +319,9 @@
     height: 332px;
   }
   .points {
-    width: 32%;
-    margin: 0 0.5%;
+    width: 200px;
+    margin: 0 20px 5px 20px;
+    text-align: start;
   }
   .points-common,
   .points-recommended,
@@ -300,6 +329,19 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 947px) {
+  .points {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 895px) {
+  .points {
+    width: 240px;
   }
 }
 
@@ -314,9 +356,11 @@
     width: 70vw;
     height: 332px;
   }
-  .points {
-    width: 48%;
-    margin: 0 1%;
+}
+
+@media only screen and (max-width: 740px) {
+  .points-common .points .points-text {
+    width: 120px;
   }
 }
 
@@ -335,29 +379,20 @@
     width: 48%;
     margin: 0 1%;
   }
-  .enroll-btn {
-    width: 200px;
-    font-size: 18px;
-    line-height: 10px;
+}
+
+@media only screen and (max-width: 680px) {
+  .points-recommended .points-text,
+  .points-not-recommended .points-text {
+    width: 150px;
+    margin-bottom: 10px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .slides img {
-    width: 64vw;
-    height: 302px;
-  }
-  .points-common,
-  .points-recommended,
-  .points-not-recommended {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  .points {
-    width: 60vw;
-    margin-left: 0;
-    text-align: start;
+    width: 359px;
+    height: 231px;
   }
   .landing-main-left {
     width: 84vw;
@@ -370,24 +405,13 @@
     margin-right: 0;
     padding: 0;
   }
-  .points-common {
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    width: 100vw;
-  }
-  .points {
-    width: 80vw;
-    margin-left: 10vw;
-    margin-right: 10vw;
+  .points-recommended .points-text,
+  .points-not-recommended .points-text {
+    width: 140px;
   }
 }
 
 @media only screen and (max-width: 560px) {
-  .slides img {
-    width: 80vw;
-    height: 280px;
-  }
   .title {
     font-size: 36px;
   }
@@ -409,16 +433,8 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .points-div {
-    flex-direction: column;
-    width: 100vw;
-  }
   .title-para {
     width: 72vw;
-  }
-  .points-title {
-    width: 80vw;
-    text-align: start;
   }
   .landing-main-right,
   .landing-main-left {
@@ -430,7 +446,8 @@
   .landing-main-left {
     display: none;
   }
-  .page-navbar,.instructor-div {
+  .page-navbar,
+  .instructor-div {
     display: block;
   }
   .page-navbar {
@@ -438,7 +455,7 @@
   }
   .instructor-div {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 80vw;
     background: #ffffff;
@@ -450,9 +467,6 @@
   .trainer {
     display: flex;
     align-items: center;
-  }
-  #overview-div, .active-div {
-    display: block;
   }
   .points-common {
     padding: 0 5vw;
@@ -466,53 +480,82 @@
     margin: 0;
     font-size: 12px;
   }
+  .points div {
+    width: 60px;
+    display: flex;
+    justify-content: end;
+  }
+  .points-text span {
+    font-size: 12px !important;
+    line-height: 12px;
+    font-weight: lighter;
+  }
   .points-title {
-    padding: 0 10vw;  
+    padding: 0 10vw;
     font-size: 14px;
   }
-  .points-recommended, .points-not-recommended {
+  .points-recommended,
+  .points-not-recommended {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     padding: 0 10vw;
-    margin-top: 10px
+    margin-top: 10px;
   }
   .points-text {
-    width: 40vw;
     font-size: 12px;
   }
   #about-div {
     display: none;
   }
-  #about-mobile-div, #benefits-mobile-div {
+  #about-mobile-div,
+  #benefits-mobile-div {
     display: none;
+  }
+  .personalisation-text {
+    width: auto;
+  }
+  .slides img {
+    width: 75vw;
+    height: 49vw;
+  }
+  .points-recommended .points-text,
+  .points-not-recommended .points-text {
+    width: auto;
+    margin-right: 15px;
   }
 }
 
 @media only screen and (max-width: 400px) {
-.points-common {
-  padding: 0 5vw;
-  display: flex;
-  flex-direction: column;
+  .points-common {
+    padding: 0 5vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .points-recommended,
+  .points-not-recommended {
+    flex-direction: column;
+    align-items: start;
+  }
+  .points-text {
+    width: 80vw;
+  }
+  .points {
+    width: 90vw;
+    margin-bottom: 5px;
+  }
+  .points p {
+    width: 60vw;
+  }
+  .points-title {
+    width: 90vw;
+    margin-top: 25px;
+    padding-right: 0;
+  }
+  .points div:nth-child(1) {
+    margin-right: 0px;
+  }
 }
-.points-recommended, .points-not-recommended {
-  flex-direction: column;
-  align-items: start;
-}
-.points-text {
-  width: 80vw;
-}
-.points {
-  width: 90vw;
-  margin-bottom: 5px;
-}
-.points-title {
-  width: 90vw;
-  margin-top: 25px;
-}
-}
-
-
 
 @media only screen and (max-width: 340px) {
   .page-navbar {
@@ -523,19 +566,19 @@
   .navbar-option {
     margin-bottom: 10px;
   }
-.instructor-div {
-  padding: 15px 20px;
- }
- .enroll-btn {
-  width: 174px;
-  height: 45px;
-  font-size: 16px;
-  line-height: 15px;
-}
+  .instructor-div {
+    padding: 15px 20px;
+  }
+  .enroll-btn {
+    width: 174px;
+    height: 45px;
+    font-size: 16px;
+    line-height: 15px;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-.instructor-div {
-  padding: 15px 5px;
- }
+  .instructor-div {
+    padding: 15px 5px;
+  }
 }

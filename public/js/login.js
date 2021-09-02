@@ -52,7 +52,7 @@ loginContinue.onclick = function() {
 	if(regexp.test(inputText)) {
 		firebase.auth().signInWithPhoneNumber("+91"+inputText, window.recaptchaVerifier).then((confirmationResult) => {
 			console.log(confirmationResult);
-			alert("An OTP has been sent to your provided mobile number")
+			// alert("An OTP has been sent to your provided mobile number")
 			codeResult = confirmationResult;
 			document.getElementById("loginContinue").style.pointerEvents="auto";
 			OTPDivActive();

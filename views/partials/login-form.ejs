@@ -8,7 +8,7 @@
             </div>
             <p class="loginInput">+91 <i class="fa fa-caret-down"></i> <input class="loginInputBar" placeholder="Please Enter Your Phone Number" type="text" id="inputPhoneNo"></p><br>
             <div id="recaptcha-verifier" ></div>
-            <button type="button" class="btn btn-light loginButton" id="loginContinue" style="pointer-events:none">
+            <button type="button" class="btn btn-light loginButton" id="loginContinue">
               Continue
             </button>
             <p class="loginCondition"><span style="margin-right: 5px;"><i class="fas fa-star-of-life"></i></span>By Continuing you agree to the <a style="color:#29E7CD;text-decoration: underline">Terms of Services</a> and <a style="color:#29E7CD; text-decoration: underline">Privacy policy</a>.</p>
@@ -17,7 +17,7 @@
             </button>
         </div>
         <div id="OTP">
-            <p class="OTPTitle"><i class="fas fa-angle-left fa-2x" id="modalBack"></i><span class="OTPText" style="color: #4ca9ee">BACK</span></p>
+            <p class="OTPTitle"><i id="modalBack"></i><span class="OTPText" style="color: #4ca9ee">BACK</span></p>
             <div class="loginBody">
                 <p class="enterText">Please enter the code we just sent to <span id="phoneNumber"></span> proceed</p>
                 <form class="otp" name="one-time-code" id="otp-div">
@@ -64,12 +64,18 @@
     }
 
     async function render() {
-        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-verifier');
-        recaptchaVerifier.render();
-        recaptchaVerifier.verify().then(token => {
-            console.log(token);
-            document.getElementById("loginContinue").style.pointerEvents="auto";
-        })
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-verifier', {
+            'size': 'invisible',
+            'callback': (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+               console.log("captcha solved")
+            }
+        });
+        // recaptchaVerifier.render();
+        // recaptchaVerifier.verify().then(token => {
+        //     console.log(token);
+        //     document.getElementById("loginContinue").style.pointerEvents="auto";
+        // })
     }
 </script>
 <script>

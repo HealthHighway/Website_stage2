@@ -33,6 +33,17 @@
 .close-next-btns {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.step-counter span {
+    font-weight: 500;
+}
+
+@media(min-width:768px) {
+    .step-counter {
+        display: none;
+    }
 }
 
 .container-for-form.active {

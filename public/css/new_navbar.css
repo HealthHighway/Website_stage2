@@ -37,15 +37,15 @@ nav {
   border-color: #4ca9ee;
   color: #fff !important;
   padding: 8px 35px !important;
-  border-radius: 20px !important;
+  border-radius: 15px !important;
   transition: 0.3s ease;
   background-color: #4ca9ee;
-  font-family: Open Sans;
   font-style: normal;
-  font-weight: bold;
   font-size: 16px;
-  line-height: 22px;
   margin-right: 70px;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 20px;
 }
 
 .loginIcon {
@@ -87,16 +87,22 @@ nav {
   display: flex;
 }
 
+.navbar-brand {
+  margin-left: 70px;
+  flex-direction: row;
+}
+
 .navbar-brand img {
   width: 80px;
   height: 53.33px;
 }
 .nav-item a {
-  font-family: Open Sans !important;
-  font-style: normal;
-  font-weight: bold !important;
-  font-size: 16px !important;
   line-height: 22px;
+  font-family: Montserrat !important;
+  font-style: normal;
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  color: #3c4860;
 }
 
 .navbar-container-unscrolled {
@@ -791,7 +797,8 @@ nav {
     font-size: 16px;
     margin-left: 3px;
   }
-  #landing-joinus, .loginIcon {
+  #landing-joinus,
+  .loginIcon {
     margin-right: 10px;
   }
 }
