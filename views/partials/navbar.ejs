@@ -5,8 +5,8 @@
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 ">
       <div id="navbar-container" class="container-fluid navbar-container-unscrolled">
-          <a class="navbar-brand" href="./index.html">
-              <img src="images/logo.svg" alt="Health Highway Logo" />
+          <a class="navbar-brand" href="/">
+              <img src="/images/logo.svg" alt="Health Highway Logo" />
               <div class="logo-text">
                   <span style="color: #4ca9ee" class="logo-span">Health</span>
                   <span style="color: #29e7cd" class="logo-span"> Highway</span>
@@ -15,11 +15,11 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                   <li style="margin-right: 40px" class="nav-item">
-                      <a href="./blogs/blogs.html" style="cursor: pointer;" onclick="scrolltofunc('unique-main-div')" 
+                      <a href="https://blogs.healthhighway.co.in/" style="cursor: pointer;"  
           class="nav-link">Blogs</a>
                   </li>
                   <li style="margin-right: 40px" class="nav-item">
-                      <a onclick="scrolltofunc('services-main-div')" style="cursor: pointer;"
+                      <a onclick="scrolltofunc('callback-section-id')" style="cursor: pointer;"
           class="nav-link">Support</a>
                   </li>
                   <% if(_id.length == 0){ %>
@@ -40,7 +40,7 @@
                 Join Us
             </button>
           <% }else{ %>
-            <button onclick="alert('Hey!!, You are logged in')" class="loginIcon" style="border: none!important; background-color: #fff!important; cursor: pointer;" >
+            <button onclick="location.href='/my-profile'" class="loginIcon" style="border: none!important; background-color: #fff!important; cursor: pointer;" >
                 <img src="/images/user.png" alt="user"/>
             </button>
           <% } %>

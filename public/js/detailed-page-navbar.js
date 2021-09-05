@@ -32,18 +32,20 @@ function displayDiv(element) {
   }
 }
 
-window.onresize = function () {
+window.addEventListener('resize', function () {
   if (screen.width > 480) {
     overview.style.display = "none";
     about.style.display = "none";
     benefits.style.display = "none";
   } else {
     displayDiv(element);
+    console.log("resize");
   }
-};
+});
 
-window.onload = function () {
+window.addEventListener('load', function () {
   if (screen.width <= 480) {
     displayDiv(element);
+    console.log("load");
   }
-};
+} );

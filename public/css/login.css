@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;400;500&family=Open+Sans:wght@300;600&display=swap");
 
-.login-modal-bg {
+.login-modal-bg, .info-modal-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@
   z-index: -1 !important;
 }
 
-.login-modal {
+.login-modal, .info-modal {
   background-color: #fff;
   width: 422px;
   display: flex;

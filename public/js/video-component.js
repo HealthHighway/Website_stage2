@@ -27,6 +27,7 @@ const playPause = () => {
     playButton.classList.toggle("video-display");
     pauseButton.classList.toggle("video-display");
     yogaVideo.play();
+    document.getElementById("thumbnail").style.display="none"
   } else {
     playButton.classList.toggle("video-display");
     pauseButton.classList.toggle("video-display");

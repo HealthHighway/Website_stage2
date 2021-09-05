@@ -3,24 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/new_navbar.css">
     <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/fix_budget.css" />
     <link rel="stylesheet" href="/css/search-fliter.css">
-    <link rel="stylesheet" href="/css/footer_old.css" />
+    <link rel="icon" href="/images/hh-favicon.png">
     <title>Health Highway | Search for Group Sessions</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
-    <style>
-        @media only screen and (max-width: 500px) {
-        #recaptcha-verifier {
-            transform:scale(0.8);-webkit-transform:scale(0.8);align-self: center!important;
-        }
-        }
-    </style>
 </head>
 
 <body>
@@ -30,15 +25,15 @@
     <main>
         <!-- Search-Filter (Start) -->
         <div class="grp-session-container">
-          <br><br><br><br><br>
-            <!-- <div class="tags-container">
+
+            <div class="tags-container">
                 <button id="fitness" class="tag">Fitness</button>
                 <button id="Yoga for kids" class="tag">Hypertension</button>
                 <button id="Diabetes" class="tag">Diabetes</button>
                 <button id="Obesity" class="tag">Obesity</button>
                 <button id="Trending" class="tag">Trending</button>
-            </div> -->
-            
+
+            </div>
             <div class="trending-classes-container">
                 <div class="trending-heading">
                     <img src="/images/trending2.svg" alt="" />
@@ -47,74 +42,183 @@
                 <div class="trending-classes">
                     <% sessions.forEach(session => { %>
                         <% if(session.ACTIVENOW){ %>
-                            <a href="/Group-Yoga-Classes/<%= session._id %>">
-                                <div class="grp-card">
-                                    <% if(session.PARTICIPANTS>=session.LIMIT){ %>
-                                        <div class="booking-status-tag red-tag">Session Over booked</div>
-                                    <% } %>
-                                   
-                                    <!-- <div> -->
-                                        <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
-                                    <!-- </div> -->
-                                    <div class="grp-card-content">
-                                        <div class="grp-card-details">
-                                            <div class="grp-card-title">
-                                                <h3><%= session.SESSION_NAME %></h3>
-                                                <p><%= session.TIME %></p>
-                                            </div>
-                                            <h4>by Yogacharya <%= session.TNAME %></h4>
-                                        </div>
-                                        <div class="grp-card-trust">
-                                            <img src="/images/man-vector.svg" alt="" />
-                                            <h4>Trusted by <%= session.PARTICIPANTS %>+ people</h4>
-                                        </div>
-                                    </div>
+                            <div style="cursor: pointer;" onclick="location.href='/Group-Yoga-Classes/<%= session._id %>'" class="new-grp-card">
+                                <% if(session.PARTICIPANTS>=session.LIMIT){ %>
+                                    <div class="booking-status-tag red-tag">Session Over booked</div>
+                                <% } %>
+                                <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
+                                <div class="grp-card-txt">
+                                <div class="card-title">
+                                    <h3><%= session.SESSION_NAME %></h3>
+                                    <p>by <%= session.TNAME %></p>
                                 </div>
-                            </a>
+                                <div class="session-time">
+                                    <p><%= session.TIME %></p>
+                                </div>
+                                </div>
+                            </div>
                         <%} %>
                         
                     <% }) %>
                 </div>
             </div>
-
-            <div class="trending-classes-container">
-                <div class="trending-heading">
-                    <img src="/images/trending2.svg" alt="" />
+            <div class="fitness-yoga-con">
+                <div class="yoga-session-heading">
+                    <img src="/images/yoga.svg" alt="" />
                     <h2>Upcoming Group Sessions</h2>
                 </div>
-                <div class="trending-classes">
+                <div class="yoga-classes">
                     <% sessions.forEach(session => { %>
                         <% if(!session.ACTIVENOW){ %>
-                            <a href="/Group-Yoga-Classes/<%= session._id %>">
-                                <div class="grp-card">
-                                    <% if(session.PARTICIPANTS>=session.LIMIT){ %>
-                                        <div class="booking-status-tag red-tag">Session Over booked</div>
-                                    <% } %>
-                                   
-                                    <!-- <div> -->
-                                        <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
-                                    <!-- </div> -->
-                                    <div class="grp-card-content">
-                                        <div class="grp-card-details">
-                                            <div class="grp-card-title">
-                                                <h3><%= session.SESSION_NAME %></h3>
-                                                <p><%= session.TIME %></p>
-                                            </div>
-                                            <h4>by Yogacharya <%= session.TNAME %></h4>
-                                        </div>
-                                        <div class="grp-card-trust">
-                                            <img src="/images/man-vector.svg" alt="" />
-                                            <h4>Trusted by <%= session.PARTICIPANTS %>+ people</h4>
-                                        </div>
-                                    </div>
+                            <div style="cursor: pointer;" onclick="location.href='/Group-Yoga-Classes/<%= session._id %>'" class="new-grp-card">
+                                <% if(session.PARTICIPANTS>=session.LIMIT){ %>
+                                    <div class="booking-status-tag red-tag">Session Over booked</div>
+                                <% } %>
+                                <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
+                                <div class="grp-card-txt">
+                                <div class="card-title">
+                                    <h3><%= session.SESSION_NAME %></h3>
+                                    <p>by <%= session.TNAME %></p>
                                 </div>
-                            </a>
+                                <div class="session-time">
+                                    <p><%= session.TIME %></p>
+                                </div>
+                                </div>
+                            </div>
                         <%} %>
                         
                     <% }) %>
                 </div>
             </div>
-            
+            <!-- <div class="fitness-yoga-con">
+                <div class="yoga-session-heading">
+                    <img src="/images/yoga.svg" alt="" />
+                    <h2>Upcoming Group Sessions</h2>
+                </div>
+                <div class="yoga-classes">
+                    <a href="detailed_sessions.html">
+                        <div class="grp-card">
+                            <img src="/images/Imagegrp-session-image.png" alt="" />
+                            <div class="grp-card-content">
+                                <div class="grp-card-details">
+                                    <div class="grp-card-title">
+                                        <h3>Fitness Yoga</h3>
+                                        <p>6 AM</p>
+                                    </div>
+                                    <h4>by Yogacharya Sandeep</h4>
+                                </div>
+                                <div class="grp-card-trust">
+                                    <img src="/images/man-vector.svg" alt="" />
+                                    <h4>Trusted by 300+ people</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div> -->
+            <div class="session-filter">
+                <div class="time-filter">
+                    <div class="top-filter">
+                        <div class="label-button">
+                            <h2>Time</h2>
+                            <a class="dropdown-btn">Select <img src="/images/down-arrow.svg" alt=""
+                /></a>
+                        </div>
+                        <span>Cancel</span>
+                    </div>
+                    <ul class="list-options">
+                        <li>Early Morning 6:00 AM</li>
+                        <li>Late Morning 9:00 AM</li>
+                        <li>Late Morning 9:00 AM</li>
+                    </ul>
+                </div>
+                <div class="time-filter">
+                    <div class="top-filter">
+                        <div class="label-button">
+                            <h2>Level</h2>
+                            <a class="dropdown-btn">Select <img src="/images/down-arrow.svg" alt=""
+                /></a>
+                        </div>
+                        <span>Cancel</span>
+                    </div>
+                    <ul class="list-options">
+                        <li>Beginner</li>
+                        <li>Intermediate</li>
+                        <li>Advance</li>
+                    </ul>
+                </div>
+                <div class="time-filter">
+                    <div class="top-filter">
+                        <div class="label-button">
+                            <h2>Time</h2>
+                            <a class="dropdown-btn">Select <img src="/images/down-arrow.svg" alt=""
+                /></a>
+                        </div>
+                        <span>Cancel</span>
+                    </div>
+                    <ul class="list-options">
+                        <li>Early Morning 6:00 AM</li>
+                        <li>Late Morning 9:00 AM</li>
+                        <li>Late Morning 9:00 AM</li>
+                    </ul>
+                </div>
+            </div>
+            <section class="filtered-result">
+                <a href="detailed_sessions.html">
+                    <div data-category="vimal" class="grp-card">
+                        <img src="/images/Imagegrp-session-image.png" alt="" />
+                        <div class="grp-card-content">
+                            <div class="grp-card-details">
+                                <div class="grp-card-title">
+                                    <h3>Fitness Yoga</h3>
+                                    <p>6 AM</p>
+                                </div>
+                                <h4>by Vimal Sandeep</h4>
+                            </div>
+                            <div class="grp-card-trust">
+                                <img src="/images/man-vector.svg" alt="" />
+                                <h4>Trusted by 300+ people</h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailed_sessions.html">
+                    <div data-category="vimal" class="grp-card">
+                        <img src="/images/Imagegrp-session-image.png" alt="" />
+                        <div class="grp-card-content">
+                            <div class="grp-card-details">
+                                <div class="grp-card-title">
+                                    <h3>Fitness Yoga</h3>
+                                    <p>6 AM</p>
+                                </div>
+                                <h4>by Vimal Sandeep</h4>
+                            </div>
+                            <div class="grp-card-trust">
+                                <img src="/images/man-vector.svg" alt="" />
+                                <h4>Trusted by 300+ people</h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a href="detailed_sessions.html">
+                    <div data-category="siva" class="grp-card">
+                        <img src="/images/Imagegrp-session-image.png" alt="" />
+                        <div class="grp-card-content">
+                            <div class="grp-card-details">
+                                <div class="grp-card-title">
+                                    <h3>Fitness Yoga</h3>
+                                    <p>6 AM</p>
+                                </div>
+                                <h4>by Siva Sandeep</h4>
+                            </div>
+                            <div class="grp-card-trust">
+                                <img src="/images/man-vector.svg" alt="" />
+                                <h4>Trusted by 300+ people</h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </section>
         </div>
         <!-- Search-Filter (End) -->
 
@@ -151,9 +255,7 @@
         <!-- USP Section (END) -->
 
         <%- include('partials/video') %>
-
         <!-- Testimonials -->
-
         <%- include('partials/testimonials') %>
 
         <!-- Testimonials(end) -->
@@ -162,16 +264,19 @@
         <%- include('partials/callback') %>
         <!-- Call-Us Section (END) -->
 
+        </div>
+
+        <!-- login div -->
+        <%- include('partials/login-form') %>
+        <!-- login div (END) -->
 
     </main>
 
-    <!-- login div -->
-    <%- include('partials/login-form') %>
-    <!-- login div (END) -->
-
-        <script src="/js/search.js"></script>
-        <script src="/js/landing.js"></script>
-        <script type="text/javascript" src="/js/login.js"></script>
+    <script src="/js/video-component.js"></script>
+    <script src="/js/search.js"></script>
+    <script src="/js/landing.js"></script>
+    <script type="text/javascript" src="/js/login.js"></script>
+    <script type="text/javascript" src="/js/info.js"></script>
 </body>
 
 </html>

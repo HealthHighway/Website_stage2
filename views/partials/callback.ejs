@@ -12,31 +12,36 @@
 </section>
 <footer>
     <div class="footer-nav">
-        <nav>
-            <ul class="nav-links">
-
-                <li class="desk-links"><a href="pricing.html">Private Sessions</a></li>
-                <li class="desk-links"><a href="group_sessions-landing.html">Group Sessions</a></li>
-                <li class="mob-links"><a href="index.html">Home</a></li>
-                <li><a href="blogs/blogs.html">Blogs</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
-        <p class="copyright"><span> &copy; </span> 2021 Health Highway. All Rights Reserved.</p>
-        <nav class="terms-privacy">
-            <ul>
-                <li>
-                    <a href="#">Terms</a>
-                </li>
-                <li>
-                    <a href="#">Privacy</a>
-                </li>
-            </ul>
-        </nav>
+      <nav>
+        <ul class="nav-links">
+          <li class="desk-links">
+            <a href="/1-on-1-Pricing-Plan">Private Sessions</a>
+          </li>
+          <li class="desk-links">
+            <a href="/Group-Yoga-Classes">Group Sessions</a>
+          </li>
+          <li class="mob-links"><a href="index.html">Home</a></li>
+          <li><a href="https://blogs.healthhighway.co.in/">Blogs</a></li>
+        </ul>
+      </nav>
+      <p class="copyright">
+        <span> &copy; </span> 2021 Health Highway. All Rights Reserved.
+      </p>
+      <nav class="terms-privacy">
+        <ul>
+          <li>
+            <a href="/terms-and-conditions">Terms</a>
+          </li>
+          <li>
+            <a href="/privacy-policy">Privacy</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-</footer>
+  </footer>
 
 <script>
+    var modalClose = document.querySelector(".closeSend");
     const submitCallback = async () => {
         let inputText = parseInt(document.querySelector("#phone-num").value);
         var regexp = /^\d{10}$/;
@@ -52,12 +57,12 @@
             const decode = await response.json();
             console.log(decode);
             document.getElementById("callback-id").style.pointerEvents="none";
-            alert("Congratulations! Your Mobile Number is Registered with us. We Will Contact You Shortly");
+            infoShow("/images/callbackBooked.svg", "Callback Scheduled We will Contact you Shortly");
             // location.reload();
         }
         else
         {
-            alert("Please Enter Correct Mobile Number");
+            infoShow("/images/callbackBooked.svg", "Please Enter Correct 10 Digit Number");
         }
     }
     

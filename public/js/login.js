@@ -45,6 +45,7 @@ modalClose.addEventListener("click", function() {
 
 loginContinue.onclick = function() {
 	// alert(window.location.pathname);
+	document.getElementById("loginContinue").innerText = "Please Wait.."
     let inputText = parseInt(document.querySelector("#inputPhoneNo").value);
 	document.getElementById("loginContinue").style.pointerEvents="none";
     phoneNumber.innerHTML = inputText;
@@ -55,6 +56,7 @@ loginContinue.onclick = function() {
 			// alert("An OTP has been sent to your provided mobile number")
 			codeResult = confirmationResult;
 			document.getElementById("loginContinue").style.pointerEvents="auto";
+			document.getElementById("loginContinue").innerText = "Continue";
 			OTPDivActive();
 		}).catch(err => {
 			if(err)
@@ -68,6 +70,7 @@ loginContinue.onclick = function() {
 	else
 	{
 		document.getElementById("loginContinue").style.pointerEvents="auto";
+		document.getElementById("loginContinue").innerText = "Continue";
 		alert("Please Enter Correct Mobile Number");
 	}
 };

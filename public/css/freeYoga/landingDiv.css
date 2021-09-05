@@ -15,7 +15,7 @@
   line-height: 30px;
 }
 
-#landing-main-div {
+#detailed-landing-main-div {
   width: 100vw;
   background-color: transparent;
   display: flex;
@@ -38,11 +38,11 @@
   height: 332px;
 }
 
-.landing-main-right {
+.detailed-landing-main-right {
   margin-top: 50px;
 }
 
-.landing-main-left {
+.detailed-landing-main-left {
   width: 40vw;
   margin-right: 4vw;
 }
@@ -295,7 +295,7 @@
 }
 
 @media only screen and (max-width: 1140px) {
-  #landing-main-div {
+  #detailed-landing-main-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -303,7 +303,7 @@
     text-align: center;
     padding: 120px 0 0 0;
   }
-  .landing-main-left {
+  .detailed-landing-main-left {
     width: 88vw;
     padding: 0 6vw;
     margin-right: 0;
@@ -311,7 +311,7 @@
   .title-para {
     width: 76vw;
   }
-  .landing-main-right {
+  .detailed-landing-main-right {
     padding: 40px 10vw 0 10vw;
   }
   .slides img {
@@ -346,10 +346,10 @@
 }
 
 @media only screen and (max-width: 850px) {
-  .landing-main-right {
+  .detailed-landing-main-right {
     padding: 40px 15vw 0 15vw;
   }
-  .landing-main-left {
+  .detailed-landing-main-left {
     margin-right: 0;
   }
   .slides img {
@@ -365,10 +365,10 @@
 }
 
 @media only screen and (max-width: 720px) {
-  .landing-main-right {
+  .detailed-landing-main-right {
     padding: 40px 15vw 0 15vw;
   }
-  .landing-main-left {
+  .detailed-landing-main-left {
     margin-right: 0;
   }
   .slides img {
@@ -394,12 +394,12 @@
     width: 359px;
     height: 231px;
   }
-  .landing-main-left {
+  .detailed-landing-main-left {
     width: 84vw;
     margin: 0;
     padding: 0;
   }
-  .landing-main-right {
+  .detailed-landing-main-right {
     width: 84vw;
     margin-left: 0;
     margin-right: 0;
@@ -436,14 +436,14 @@
   .title-para {
     width: 72vw;
   }
-  .landing-main-right,
-  .landing-main-left {
+  .detailed-landing-main-right,
+  .detailed-landing-main-left {
     width: 80vw;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .landing-main-left {
+  .detailed-landing-main-left {
     display: none;
   }
   .page-navbar,
@@ -481,7 +481,7 @@
     font-size: 12px;
   }
   .points div {
-    width: 60px;
+    width: 40px;
     display: flex;
     justify-content: end;
   }
@@ -505,12 +505,11 @@
   .points-text {
     font-size: 12px;
   }
-  #about-div {
-    display: none;
+  #overview-div {
+    display: block;
   }
-  #about-mobile-div,
-  #benefits-mobile-div {
-    display: none;
+  #about-div {
+    display: none !important;
   }
   .personalisation-text {
     width: auto;
@@ -523,6 +522,18 @@
   .points-not-recommended .points-text {
     width: auto;
     margin-right: 15px;
+  }
+  .points div img, .points-title img{
+    width: 18px;
+    height: 18px;
+  }
+
+  .points div:nth-child(1) {
+    margin-right: 14px;
+}
+
+  .points div p{
+    font-size: 18px;
   }
 }
 
@@ -544,16 +555,16 @@
     width: 90vw;
     margin-bottom: 5px;
   }
-  .points p {
-    width: 60vw;
-  }
   .points-title {
     width: 90vw;
     margin-top: 25px;
     padding-right: 0;
   }
-  .points div:nth-child(1) {
-    margin-right: 0px;
+  .points div {
+    width: 32px;
+  }
+  .rupees {
+    line-height: 0;
   }
 }
 

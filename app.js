@@ -318,7 +318,7 @@ app.get("/my-profile", async (req, res) => {
                 {
                     const r1 = await response.json();
                     console.log(r1);
-                    res.render("dashboard", {PRIVATE : r1.PRIVATE, GROUP : r1.expanded_group, PHONE_NUMBER : r1.PHONE_NUMBER, NAME : r1.NAME, EMAIL : r1.EMAIL, _id : r1._id });
+                    res.render("dashboard", {PRIVATE : r1.PRIVATE, GROUP : r1.expanded_group, PHONE_NUMBER : r1.PHONE_NUMBER, NAME : r1.NAME, EMAIL : r1.EMAIL, _id : req.session.HH_user._id});
                 }
                 else
                 {
@@ -350,6 +350,31 @@ app.get("/terms-and-conditions", (req, res) => {
 
 app.get("/privacy-policy", (req, res) => {
     res.render("policy")
+})
+
+app.get("/live-class/:VIDEO_CHANNEL", (req,res) => {
+    if(req.session.HH_user)
+    {
+        if(req.session.HH_user._id)
+        {
+            res.render("video", {room : req.params.VIDEO_CHANNEL});
+        }
+        else
+        {
+            req.session.HH_user = null;
+            res.redirect("/")
+        }
+    }
+    else
+    {
+        req.session.HH_user = null;
+        res.redirect("/")
+    }
+})
+
+app.get("/logout", (req,res) => {
+    req.session.HH_user = null;
+    res.redirect("/");
 })
 
 app.get("*", (req,res) => {
