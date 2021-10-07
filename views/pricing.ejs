@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link rel="stylesheet" href="/css/tavo-calendar.css" />
@@ -64,7 +63,7 @@
                         <img src="/images/newcart.svg" alt="" />
                     </button>
                     <div class="desktop-link">
-                      <a href="/Group-Yoga-Classes"> <h4 >Have fixed budget ?</h4></a> 
+                      <a style="cursor:pointer" onclick="scrolltofunc('fixed-budget-private-section')" > <h4 >Have fixed budget ?</h4></a> 
                     </div>
                     
                 </div>
@@ -132,7 +131,7 @@
                             <h2>Add to cart</h2>
                             <img src="/images/newcart.svg" alt="" />
                         </button>
-                        <a href="#">Fixed budget ?</a>
+                        <a style="cursor:pointer" onclick="scrolltofunc('fixed-budget-private-section')"  >Fixed budget ?</a>
                     </div>
                 </div>
             </div>
@@ -149,7 +148,7 @@
                 const _id = '<%- _id %>';
                 if(_id.length == 0)
                 {
-                    infoShow("/images/notLoggedInfo.svg", "Please login before booking Session");
+                    infoModalOpenFunction("/images/notLoggedInfo.svg", "Please login before booking Session");
                 }
                 else
                 {
@@ -163,7 +162,7 @@
                         }
                     }
                     if(checked.length === 0){
-                        infoShow("/images/notLoggedInfo.svg", "Please Choose a Session Package");
+                        infoModalOpenFunction("/images/notLoggedInfo.svg", "Please Choose a Session Package");
                     }
                     else
                     {
@@ -395,7 +394,7 @@
         <!-- USP Section (START) -->
         <section id="usp" class="usp-section">
             <div class="usp-one">
-                <img src="/images/pricingusp1.svg" alt="yoga for everyone" />
+                <div class="usp-one-svg"></div>
                 <div class="left-item">
                     <h3 class="usp-heading"><span>One-on-One</span> Interaction</h3>
                     <p class="usp-content">
@@ -404,7 +403,7 @@
                 </div>
             </div>
             <div class="usp-two">
-                <img src="/images/pricingusp2.svg" alt="yoga for everything" />
+                <div class="usp-two-svg"></div>
                 <div class="right-item">
                     <h3 class="usp-heading"><span>Flexible </span>Timings</h3>
                     <p class="usp-content">
@@ -413,7 +412,7 @@
                 </div>
             </div>
             <div class="usp-three">
-                <img src="/images/pricingusp3.svg" alt="yoga for everytime" />
+                <div class="usp-three-svg"></div>
                 <div class="left-item">
                     <h3 class="usp-heading"><span>Personal</span> Diet Coach</h3>
                     <p class="usp-content">
@@ -422,6 +421,7 @@
                 </div>
             </div>
         </section>
+        <script src="/js/usp-animation2.js"></script>
         <!-- USP Section (END) -->
 
         <!-- VIdeo Section -->
@@ -433,9 +433,9 @@
         <%- include('partials/testimonials') %>
         <!-- Testimonials(end) -->
          <!-- Fixed-Budget Section -->
-        <div class="fixed-budget-con">
+        <div class="fixed-budget-con" id="fixed-budget-private-section">
             <div class="fixed-budget">
-                <h3>Have a fixed budget for fitness ?</h3>
+                <a href="/Group-Yoga-Classes"  ><h3>Have a fixed budget for fitness ?</h3></a>
                 <p>
                 Dont worry we got you covered. We bring you a variety of group
                 sessions that suits your need.
@@ -454,7 +454,7 @@
                                 <p>by <%= session.TNAME %></p>
                             </div>
                             <div class="session-time">
-                                <p><%= session.TIME %></p>
+                                <p><%= session.TIME.substring(0, 5) + session.TIME.substring(8, 11) %></p>
                             </div>
                             </div>
                         </div>
@@ -479,7 +479,6 @@
     <script src="/js/landing.js"></script>
     <script src="/js/form.js"></script>
     <script type="text/javascript" src="/js/login.js"></script>
-    <script type="text/javascript" src="/js/info.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>  
@@ -514,11 +513,11 @@
                    if(response.status == 200) {
                        const user = await response.json();
                        console.log(user);
-                       infoShow("/images/sessionBooked.svg", "Hurray! Session Booked");
+                       infoModalOpenFunction("/images/sessionBooked.svg", "Hurray! Session Booked");
                    }
                    else
                    {
-                       infoShow("/images/notLoggedInfo.svg", "Oops! Some Network issue, please try later");
+                       infoModalOpenFunction("/images/notLoggedInfo.svg", "Oops! Some Network issue, please try later");
                        console.log("failed called");
                    }
                    setTimeout(() => {
@@ -533,7 +532,7 @@
             rzp1.open();
             document.getElementById("payNow").style.pointerEvents="auto";
             rzp1.on('payment.failed', function (response){
-               infoShow("/images/notLoggedInfo.svg", "Oops! Some Network issue, please try later");
+               infoModalOpenFunction("/images/notLoggedInfo.svg", "Oops! Some Network issue, please try later");
                setTimeout(() => {
                  window.location.replace("/");
                }, 2000);

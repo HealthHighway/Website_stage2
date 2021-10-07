@@ -95,7 +95,7 @@
                 const _id = '<%- _id %>';
                 if(_id.length == 0)
                 {
-                    infoShow("/images/notLoggedInfo.svg", "Please login before booking Session");
+                    infoModalOpenFunction("/images/notLoggedInfo.svg", "Please login before booking Session");
                 }
                 else
                 {
@@ -109,7 +109,7 @@
                     })
                     if(present)
                     {
-                        infoShow("/images/alreadyBookedInfo.svg", "Relax! Your Session is Booked Already");
+                        infoModalOpenFunction("/images/alreadyBookedInfo.svg", "Relax! Your Session is Booked Already");
                     }
                     else
                     {
@@ -125,11 +125,11 @@
                         console.log(decode);
                         if(decode.verified)
                         {
-                            infoShow("/images/sessionBooked.svg", "Hurray! Session Booked");
+                            infoModalOpenFunction("/images/sessionBooked.svg", "Hurray! Session Booked");
                         }
                         else
                         {
-                            infoShow("/images/notLoggedInfo.svg", "Oops! Some Network issue, please try later");
+                            infoModalOpenFunction("/images/notLoggedInfo.svg", "Oops! Some Network issue, please try later");
                         }
                         location.reload();
                     }
@@ -291,7 +291,6 @@
     <script type="text/javascript" src="/js/slider.js"></script>
     <script type="text/javascript" src="/js/login.js"></script>
     <script type="text/javascript" src="/js/detailed-page-navbar.js"></script>
-    <script type="text/javascript" src="/js/info.js"></script>
 </body>
 
 </html>

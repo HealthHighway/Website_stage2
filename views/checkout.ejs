@@ -19,7 +19,7 @@
             scroll-behavior: smooth;
         }
         .container {
-           max-width: 960px;
+           max-width: 900px;
         }
 
         #sessionId {
@@ -39,69 +39,54 @@
         .lh-condensed { line-height: 1.25; }
     </style>
 
-  <body class="bg-light">
+  <body>
 
-    <div class="container">
-      <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-2" src="https://firebasestorage.googleapis.com/v0/b/healthhighway-45963.appspot.com/o/Highway%20To%20Health.png?alt=media&token=6a6a35bd-d1d2-4c19-8b75-ddd10551b789" alt="" width="80" height="72">
-        <h2 style="font-weight: bold;font-size: 1.2rem;" >Check Out</h2>
-        <p class="lead" style="font-size: 1.2rem;" >Choose timings plus days of the week to keep a live-online-yoga session with the trainer.</p>
+    <div class="container" >
+      <div class="text-center">
+        <img class="d-block mx-auto mb-2" src="https://ik.imagekit.io/healthhighway2020/APPICON_-OEcn-k_dtP.png?updatedAt=1633240213768" alt="" width="150" height="150">
       </div>
 
       <div class="row">
         
         <div class="col-md-12 order-md-1">
-          <h4 class="mb-3">Billing information</h4>
+          <h4 class="mb-3">Register Now</h4>
           <form class="needs-validation" novalidate>
             <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="col-12 mb-3">
+                <label for="problem">Your Goal/Problem</label>
+                <input type="text" class="form-control" id="problem" placeholder="" value="" required>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-4 mb-3">
                 <label for="weight">Your weight (in Kgs)</label>
                 <input type="text" class="form-control" id="weight" placeholder="" value="" required>
               </div>
-              <div class="col-md-6 mb-3">
-                <label for="height">Your Height (in m)</label>
-                <input type="text" class="form-control" id="height" placeholder="" value="" required>
+              <div class="col-md-4 mb-3">
+                <label for="height">Your Age</label>
+                <input type="text" class="form-control" id="age" placeholder="" value="" required>
               </div>
-            </div><br/>
-            <div class="mb-3">
-              <label for="email">Email <span>(Required for Billing)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
+              <div class="form-group col-md-4">
+                <label for="timing">Choose timing for your session</label>
+                <select class="form-control" id="timing">
+                  <option>6:00 - 7:00 AM</option>
+                  <option>7:00 - 8:00 AM</option>
+                  <option>8:00 - 9:00 AM</option>
+                  <option>9:00 - 10:00 AM</option>
+                  <option>10:00 - 11:00 AM</option>
+                  <option>4:00 - 5:00 PM</option>
+                  <option>5:00 - 6:00 PM</option>
+                  <option>6:00 - 7:00 PM</option>
+                  <option>7:00 - 8:00 PM</option>
+                  <option>8:00 - 9:00 PM</option>
+                </select>
             </div>
+            </div><br/>
+            
             <div class="row" >
-                <div class="form-group col-md-6">
-                    <label for="timing">Choose timing for your session</label>
-                    <select class="form-control" id="timing">
-                      <option>7:00 - 8:00 AM</option>
-                      <option>8:00 - 9:00 AM</option>
-                      <option>9:00 - 10:00 AM</option>
-                      <option>10:00 - 11:00 AM</option>
-                      <option>4:00 - 5:00 PM</option>
-                      <option>5:00 - 6:00 PM</option>
-                      <option>6:00 - 7:00 PM</option>
-                      <option>7:00 - 8:00 PM</option>
-                      <option>8:00 - 9:00 PM</option>
-                    </select>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="nos">Total Number of Sessions in the package</label>
-                    <select class="form-control" id="nos" onchange="changePrice()" >
-                      <option value="1" >1 Session</option>
-                      <option value="10" >10 Sessions</option>
-                      <option value="16" >16 Sessions</option>
-                      <option value="20" >20 Sessions</option>
-                      <option value="24" >24 Sessions</option>
-                      <option value="30" >30 Sessions</option>
-                    </select>
+                <div class="col-md-12">
+                  <label for="date">Starting Date * <span style="color:orange;" >( Must be atleast 24 hours ahead of current time & date )</span></label>
+                  <input type="date" class="form-control" id="dateObj" placeholder="" value="" required>
                 </div>
             </div>
             <div class="text-left" >
@@ -126,7 +111,7 @@
                   </div>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-                    <label class="form-check-label" for="inlineCheckbox1">Thurs</label>
+                    <label class="form-check-label" for="inlineCheckbox1">Thu</label>
                   </div>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
@@ -147,11 +132,7 @@
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="female" value="female">
               <label class="form-check-label" for="female">Female</label>
-            </div><br/><br/>
-            <div class="mb-3">
-              <label for="ailment">Any Particular Ailment<span>(Optional)</span></label>
-              <input type="text" class="form-control" id="ailment" placeholder="">
-            </div>
+            </div><br/>
             
             <div class="text-left" >
                 <p  style="font-size: .7rem; color: orangered;">** Please note that you are allowed to change the day and timings for maximum 2 of the sessions (in case of any unpredictable situation from your side) and you need to inform us about that atleast 24 hrs prior to the session so that we can find you another yoga instructor<p>

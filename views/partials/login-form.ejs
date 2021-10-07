@@ -1,39 +1,49 @@
 <div class="login-modal-bg">
     <div class="login-modal">
         <div class="loginBody" id="phoneDiv">
-            <img src="/images/logo.svg" class="loginLogo">
-            <div class="loginLogoText">
-                <span style="color: #4ca9ee" class="logo-span">Health</span>
-                <span style="color: #29e7cd" class="logo-span"> Highway</span>
-            </div>
+            <img src="https://ik.imagekit.io/healthhighway2020/logo_DcXvHIoG7.svg?updatedAt=1631177447330" class="loginLogo">
+            <img src="https://ik.imagekit.io/healthhighway2020/logoText_Is7BIsFYx.svg?updatedAt=1631177452465" class="textLogo">
             <p class="loginInput">+91 <i class="fa fa-caret-down"></i> <input class="loginInputBar" placeholder="Please Enter Your Phone Number" type="text" id="inputPhoneNo"></p><br>
             <div id="recaptcha-verifier" ></div>
             <button type="button" class="btn btn-light loginButton" id="loginContinue">
               Continue
             </button>
-            <p class="loginCondition"><span style="margin-right: 5px;"><i class="fas fa-star-of-life"></i></span>By Continuing you agree to the <a href="/terms-and-conditions" style="color:#29E7CD;text-decoration: underline">Terms of Services</a> and <a href="/privacy-policy" style="color:#29E7CD; text-decoration: underline">Privacy policy</a>.</p>
+            <p class="loginCondition">By Continuing you agree to the <a href="/terms-and-conditions" style="color:#29E7CD;text-decoration: underline">Terms of Services</a> and <a href="/privacy-policy" style="color:#29E7CD; text-decoration: underline">Privacy policy</a>.</p>
             <button type="button" class="btn loginContinueButton" id="customBtn" style="display: flex; align-content: flex-start;">
-                <img src="/images/google.png" class="google" >Login Using Gmail</span>
+                <img src="https://ik.imagekit.io/healthhighway2020/google_80EpslXEKg.png?updatedAt=1631177403407" class="google" >Login Using Gmail</span>
             </button>
         </div>
         <div id="OTP">
-            <p class="OTPTitle"><i id="modalBack"></i><span class="OTPText" style="color: #4ca9ee">BACK</span></p>
+            <p class="OTPTitle" id = "backOTP"><i id="modalBack"></i><span class="OTPText" style="color: #4ca9ee">BACK</span></p>
             <div class="loginBody">
-                <p class="enterText">Please enter the code we just sent to <span id="phoneNumber"></span> proceed</p>
+                <p class="enterText">Please enter the code we just sent to <span id="phoneNumber"></span> proceed
+                </p>
                 <form class="otp" name="one-time-code" id="otp-div">
                     <fieldset>
                         <div>
-                            <input type="number" pattern="[0-9]*"  value="" inputtype="numeric" autocomplete="one-time-code" id="otp-1" required>
-                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otp-2" required>
-                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otp-3" required>
-                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otp-4" required>
-                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otp-5" required>
-                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1"  value="" inputtype="numeric" id="otp-6" required>
+                            <input type="number" pattern="[0-9]*" value="" inputtype="numeric" autocomplete="one-time-code" id="otp-1" required>
+                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otp-2" required>
+                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otp-3" required>
+                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otp-4" required>
+                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otp-5" required>
+                            <input type="number" pattern="[0-9]*" min="0" max="9" maxlength="1" value="" inputtype="numeric" id="otp-6" required>
                         </div>
                     </fieldset>
                 </form>
                 <button type="button" class="btn btn-light loginButton" id="confirmLogin">
                     Confirm
+                </button>
+            </div>
+        </div>
+        <div id="name">
+            <div class="loginBody">
+                <img class="nameImg" src="https://ik.imagekit.io/healthhighway2020/nameDiv_cHk_VP7U6-.svg?updatedAt=1631378890462">
+                <p class="nameText">Its always good to know each other before 
+                    we get started :)
+                </p>
+                <input class = "nameInput" placeholder = "Please Enter Your Fullname " id="inputFormName" >
+                <button type="button" class="btn btn-light loginButton" id="continueName" >
+                    Continue
                 </button>
             </div>
         </div>
@@ -43,11 +53,11 @@
 
 <div class="info-modal-bg">
     <div class="info-modal">
-         <div id="OTPSend">
-            <img id="infoIMG"/>
-            <p id="infoTITLE" style="color: #4ca9ee;font-weight: bold;" ></p>  
-         </div>
-        <span> <i class="fa fa-times fa-1x close closeSend"></i></span>
+        <div id="info-div">
+        <img id="infoIMG" />
+        <p style="color: #4ca9ee;font-weight: bold;" id="infoTITLE" ></p>
+        </div>
+        <span onclick="modalInfoCloseFunction()" > <i class="closeSend"></i></span>
     </div>
 </div>
 

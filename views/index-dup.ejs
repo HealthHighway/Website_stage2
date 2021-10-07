@@ -6,11 +6,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Open+Sans:wght@700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Roboto:wght@700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/new_navbar.css" />
     <link rel="stylesheet" href="/css/login.css" />
-    <link rel="stylesheet" href="/css/footer_old.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
     <link rel="stylesheet" href="/css/landing-animation.css">
     <link rel="icon" href="/images/hh-favicon.png">
     <title>Health Highway | Your Yoga Buddy</title>
@@ -24,43 +23,47 @@
     </header>
     <main>
         <!-- landing -->
+        <%- include('partials/login-form') %>
+        <%- include('partials/profile-form') %>
+        <script type="text/javascript" src="/js/login.js"></script>
         <div id="landing-main-div"> 
             <div class="landing-main-center landing-main-center1">
                 <p class="landing-main-text1">Live Yoga Classes</p>
                 <div class="landing-line-text">
-                <p class="landing-main-text2">From world yoga capital to your home</p>
-
+                    <p class="landing-main-text2">From world yoga capital to your home</p>
                 </div>
-                <a class="landing-main-button desktop" href="#get-started-section">Get Started</a>
+                <a class="landing-main-button desktop" onclick="scrollEase(1500, 'get-started-section')" style="cursor:pointer"  >Get Started</a>
             </div>
             <div class="animation-container">
                 <div class="animation_left"></div>
                 <div class="landing-main-center landing-main-center2">
                     <p class="landing-main-text1">Live Yoga Classes</p>
                     <div class="landing-line-text">
-                    <div class="animation_middle">
-                        <div class="middle-line"></div>
-                    </div> 
-                    <p class="landing-main-text2">From world yoga capital to your home</p>
+                        <div class="animation_middle">
+                            <div class="middle-line"></div>
+                        </div>
+                        <p class="landing-main-text2">From world yoga capital to your home</p>
 
                     </div>
-                    <a class="landing-main-button desktop" href="#get-started-section">Get Started</a>
+                    <a class="landing-main-button desktop" onclick="scrollEase(1500, 'get-started-section')" style="cursor:pointer" >Get Started</a>
                 </div>
                 <div class="animation_right"></div>
             </div>
-            <script src="./landing-animation.js"></script>
+            <script src="/landing-animation.js"></script>
             <div class="landing-container"></div>
             <div class="mobile-animation">
-                <img src="images/landing-animation.gif" />
+                <img src="/images/landing-animation.gif" />
             </div>
         </div>
+        
+
         <!-- landing (END)-->
 
         <!-- know more div (START) --> 
         <div class="know-more-div">
-            <a class="landing-main-button mobile" href="#get-started-section">Get Started</a>
-            <p style="text-align: center"><a href="#usp" class="know-more">Know More</a></p>
-            <p style="text-align: center"><a href="#usp" class="know-more"><i class="fa fa-arrow-down"></i></a></p>
+            <a class="landing-main-button mobile" onclick="scrollEase(1500, 'get-started-section')" style="cursor:pointer" >Get Started</a>
+            <p style="text-align: center"><a onclick="scrollEase(800, 'usp')" style="cursor:pointer" class="know-more">Know More</a></p>
+            <p style="text-align: center"><a onclick="scrollEase(800, 'usp')" style="cursor:pointer" class="know-more"><i class="fa fa-arrow-down"></i></a></p>
         </div><br><br><br><br><br>
         <!-- know more div (END) -->
 
@@ -70,7 +73,7 @@
                 <span>“</span><span style="color: #4CA9EE;" >Train</span> with the Best, <span style="color: #29E7CD">Forget</span> the Rest
                 <span>”</span>
             </h2>
-            <div class="border"></div>
+            <!-- <div class="border"></div> -->
             <p class="about-us-content">
                 Our platform connects high-spirited, devoted yogis with users who aspire to inculcate yoga in their daily lifestyle. We have a conviction that there should be no compromise when it comes to the well being of a individual. Health Highway is a private tutor for yoga, providing reliable and efficient solutions to ease your lifestyle requirements by tailoring them to your needs, your time and your lifestyle.
             </p>
@@ -80,7 +83,7 @@
         <!-- USP Section (START) -->
         <section id="usp" class="usp-section">
             <div class="usp-one">
-                <img src="/images/newUsp1.svg" alt="yoga for everyone" />
+                <div class="usp-one-svg"></div>
                 <div class="left-item">
                     <h3 class="usp-heading">Yoga for <span>Everyone</span></h3>
                     <p class="usp-content">
@@ -89,7 +92,7 @@
                 </div>
             </div>
             <div class="usp-two">
-                <img src="/images/newUps2.svg" alt="yoga for everything" />
+                <div class="usp-two-svg"></div>
                 <div class="right-item">
                     <h3 class="usp-heading">Yoga for <span>Everything</span></h3>
                     <p class="usp-content">
@@ -98,7 +101,8 @@
                 </div>
             </div>
             <div class="usp-three">
-                <img src="/images/newUsp3.svg" alt="yoga for everytime" />
+                <div class="usp-three-svg"></div>
+
                 <div class="left-item">
                     <h3 class="usp-heading">Yoga for <span>Everytime</span></h3>
                     <p class="usp-content">
@@ -107,6 +111,7 @@
                 </div>
             </div>
         </section>
+        <script src="/js/usp-animation1.js"></script>
         <!-- USP Section (END) -->
 
         <!-- VIdeo Section -->
@@ -193,18 +198,37 @@
         <!-- Call-Us Section (END) -->
 
         <!-- login div -->
-        <%- include('partials/login-form') %>
+        
         <!-- login div (END) -->
 
     </main>
 
-    <script type="text/javascript" src="/js/event.js"></script>
     <script type="text/javascript" src="/js/landing.js"></script>
     <script type="text/javascript" src="/js/get-started.js"></script>
     <script src="/js/video-component.js"></script>
     <script src="/js/landing-animation.js"> </script>
-    <script type="text/javascript" src="/js/login.js"></script>
-    <script type="text/javascript" src="/js/info.js"></script>
+    <script src="/js/profile-form.js" ></script>
+
+    <script>
+        async function saveProfile(){
+            const id = '<%- _id %>';
+            console.log(id);
+            console.log(window.HH_Profile)
+            // const response = await fetch("http://192.168.29.48:5000/user/update-user-bio/"+id, {
+            //     method  :"POST",
+            //     mode : "same-origin",
+            //     headers : {
+            //     'Content-type' : 'application/json'
+            //     },
+            //     body : JSON.stringify({...window.HH_Profile})
+            // });
+
+            // const decode = await response.json();
+            // console.log(decode);
+            //   location.reload();
+        }
+    </script>
+
 </body>
 
 </html>

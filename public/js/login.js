@@ -1,43 +1,66 @@
+var login = document.getElementById("landing-joinus");
 var modalBg = document.querySelector(".login-modal-bg");
 var modalClose = document.querySelector(".close");
 var navbar = document.querySelector("nav");
 var OTP = document.getElementById("OTP");
 var phoneNumber = document.getElementById("phoneNumber");
-var otpConfirm = document.getElementById("confirmLogin");
-var phoneDiv = document.getElementById("phoneDiv");
 var loginContinue = document.getElementById("loginContinue");
+var otpConfirm = document.getElementById("confirmLogin");
+var continueName = document.getElementById("continueName");
+var phoneDiv = document.getElementById("phoneDiv");
 var loginModal = document.querySelector(".login-modal");
-var modalBack = document.getElementById("modalBack");
-var joinusbtn = document.getElementById("landing-joinus");
-var sidejoinusbtn = document.getElementById("sidebar-joinus");
+var modalBackOTP = document.getElementById("backOTP");
+var infoBg = document.querySelector(".info-modal-bg");
+var nameDiv = document.getElementById("name");
 
 phoneDivActive = () => {
     phoneDiv.style.display = "block";
-    loginModal.classList.add("phoneDivActive");
     OTP.style.display = "none";
-    loginModal.classList.remove("OTPActive");
+	nameDiv.style.display = "none";
     phoneNumber.innerHTML = "";
     phoneDiv.style.display = "flex";
+	loginModal.style.height = "auto"
 };
 
 OTPDivActive = () => {
     phoneDiv.style.display = "none";
-    loginModal.classList.remove("phoneDivActive");
     OTP.style.display = "block";
-    loginModal.classList.add("OTPActive");
     phoneNumber.classList.add("phone");
+	loginModal.style.height = "340px"
+	nameDiv.style.display = "none";
 };
 
+nameDivActive = () => {
+	phoneDiv.style.display = "none";	
+	OTP.style.display = "none";
+	nameDiv.style.display = "block";
+	loginModal.style.height = "auto"
+}
+
 modalCloseFunction = () => {
+	console.log("called close fxn")
     modalBg.classList.remove("bg-active");
     phoneDivActive();
     document.getElementById("otp-div").reset();
+	location.reload();
+};
+
+modalInfoCloseFunction = () => {
+    infoBg.classList.remove("info-bg-active");
 };
 
 modalOpenFunction = () => {
     modalBg.classList.add("bg-active");
     navbar.style.zIndex = "0";
 };
+
+infoModalOpenFunction = (IMG, TITLE) => {
+	infoBg.classList.add("info-bg-active");
+	document.getElementById("infoIMG").src=IMG;
+    document.getElementById("infoTITLE").innerText=TITLE;
+	navbar.style.zIndex = "0";
+}
+
 
 modalClose.addEventListener("click", function() {
     modalCloseFunction();
@@ -101,9 +124,26 @@ otpConfirm.onclick = function() {
 	
 			  const decode = await response.json();
 			  console.log(decode);
-			  location.reload();
+			  if(decode.verified==true) {
+				  if(decode.name_present===false) {
+					  console.log("enter your name as well");
+					  nameDivActive();
+				  }
+				  else
+				  {
+					  console.log("login/signup successful");
+					  location.reload();
+				  }
+			  }
+			  else
+			  {
+				  console.log("not verified");
+				  location.reload();
+			  }
+			//   location.reload();
 		}).catch(err => {
 			console.log(err);
+			console.log("some error came in")
 			location.reload();
 		})
 	}
@@ -112,12 +152,36 @@ otpConfirm.onclick = function() {
 	}
 };
 
-modalBack.onclick = function() {
+continueName.onclick = async () => {
+    var name = document.getElementById("inputFormName").value;
+	if(name.length > 0){
+		// alert(name);
+		document.getElementById("continueName").style.pointerEvents="none";
+		document.getElementById("continueName").innerText = "Please Wait.."
+		const response = await fetch("/add-name-with-phone-number", {
+			method  :"POST",
+			mode : "same-origin",
+			headers : {
+			  'Content-type' : 'application/json'
+			},
+			body : JSON.stringify({name})
+		  });
+
+		  const decode = await response.json();
+		  console.log(decode);
+		  location.reload();
+	}
+	else
+	{
+		alert("please enter proper name");
+	}
+}
+
+modalBackOTP.onclick = function() {
     phoneDivActive();
 };
 
 // code for otp input
-
 let in1 = document.getElementById('otp-1'),
     ins = document.querySelectorAll('input[type="number"]'),
 	 splitNumber = function(e) {

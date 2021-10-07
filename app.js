@@ -14,7 +14,7 @@ const app = express();
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 
-const baseUrl = "http://13.127.204.161:5000"
+const baseUrl = "http://192.168.29.48:5000"
 
 app.use(express.static(__dirname+"/public"));
 app.set('view engine', "ejs");
@@ -90,7 +90,7 @@ app.get("/calendar", (req, res) => {
 
 
 app.get("/Group-Yoga-Classes", (req, res) => {
-    fetch("https://api.healthhighway.co.in/admin/get-all-group-sessions", {
+    fetch(baseUrl+"/admin/get-all-group-sessions", {
         method : "GET"
     }).then(async (response) => {
         console.log(response.status)
@@ -119,7 +119,7 @@ app.get("/Group-Yoga-Classes", (req, res) => {
 })
 
 app.get("/Group-Yoga-Classes/:id", (req, res) => {
-    fetch("https://api.healthhighway.co.in/admin/get-particular-group/"+req.params.id, {
+    fetch(baseUrl+"/admin/get-particular-group/"+req.params.id, {
         method : "GET"
     }).then(async (response) => {
         console.log(response.status)
@@ -148,7 +148,7 @@ app.get("/Group-Yoga-Classes/:id", (req, res) => {
 })
 
 app.get("/1-on-1-Pricing-Plan", (req, res) => {
-    fetch("https://api.healthhighway.co.in/admin/get-all-group-sessions", {
+    fetch(baseUrl+"/admin/get-all-group-sessions", {
         method : "GET"
     }).then(async (response) => {
         console.log(response.status)
@@ -178,10 +178,9 @@ app.get("/1-on-1-Pricing-Plan", (req, res) => {
 
 app.post("/phoneauth", async (req, res) => {
     console.log(req.body);
-    // req.session.HH_user = {phoneNumber : req.body.phoneNumber};
     var resp;
     console.log(req.body);
-    await fetch("https://api.healthhighway.co.in/user/create-user-with-phone-auth", {
+    await fetch(baseUrl+"/user/create-user-with-phone-auth", {
             method: "POST",
             body: qs.stringify({
                 PHONE_NUMBER : req.body.phoneNumber
@@ -195,8 +194,60 @@ app.post("/phoneauth", async (req, res) => {
         {
             const r1 = await response.json();
             console.log(r1);
+            resp={"verified" : true, "name_present" : r1.user.NAME?(r1.user.NAME.length>0?true:false):false};
+            if(r1.user.NAME && r1.user.NAME.length>0){
+                req.session.HH_user = {
+                    PHONE_NUMBER : req.body.phoneNumber,
+                    NAME : r1.user.NAME,
+                    _id : r1.user._id,
+                    GROUP : [...r1.user.GROUP]
+                }
+            }
+            else
+            {
+                req.session.HH_user = {
+                    PHONE_NUMBER : req.body.phoneNumber
+                }
+            }
+        }
+        else
+        {
+            console.log("nulling at /phoneauth");
+            req.session.HH_user = null;
+            resp={"verified" : false, "name_present" : r1.user.name?(r1.user.name.length>0?true:false):false};
+        }
+    }).catch(err => {
+        console.log("nulling at /phoenauth catch");
+        req.session.HH_user = null;
+        resp={"verified" : false, "name_present" : r1.user.name?(r1.user.name.length>0?true:false):false};
+        console.log(err);
+    })
+    res.contentType = "application/json; charset=utf-8";
+    res.send(resp);
+})
+
+app.post("/add-name-with-phone-number", async (req, res) => {
+    console.log(req.body);
+    var resp;
+    await fetch(baseUrl+"/user/add-name-with-phone-number", {
+            method: "POST",
+            body: qs.stringify({
+                PHONE_NUMBER : req.session.HH_user.PHONE_NUMBER, 
+                NAME : req.body.name,
+            }),
+            headers: { 
+                "Content-type": "application/x-www-form-urlencoded"
+            } 
+    }).then(async (response) => {
+        console.log(response.status);
+        if(response.status == 200)
+        {
+            const r1 = await response.json();
+            console.log(r1);
             resp={"verified" : true};
             req.session.HH_user = {
+                PHONE_NUMBER : req.session.HH_user.PHONE_NUMBER,
+                NAME : req.body.name,
                 _id : r1.user._id,
                 GROUP : [...r1.user.GROUP]
             }
@@ -205,6 +256,7 @@ app.post("/phoneauth", async (req, res) => {
         {
             console.log("nulling at /phoneauth");
             resp={"verified" : false};
+            req.session.HH_user = null;
         }
     }).catch(err => {
         console.log("nulling at /phoenauth catch");
@@ -220,7 +272,7 @@ app.post("/oauth", async (req, res) => {
     console.log(req.body);
     var resp;
     console.log(req.body);
-    await fetch("https://api.healthhighway.co.in/user/create-user-with-oauth", {
+    await fetch(baseUrl+"/user/create-user-with-oauth", {
             method: "POST",
             body: qs.stringify({
                 EMAIL : req.body.email,
@@ -260,7 +312,7 @@ app.post("/create-group", async (req, res) => {
     console.log(req.body);
     var resp;
     console.log(req.body);
-    await fetch("https://api.healthhighway.co.in/data/create-group", {
+    await fetch(baseUrl+"/data/create-group", {
             method: "POST",
             body: qs.stringify({
                 GRPID : req.body.GRPID,
@@ -303,7 +355,7 @@ app.get("/my-profile", async (req, res) => {
     {
         if(req.session.HH_user._id)
         {
-            await fetch("https://api.healthhighway.co.in/data/flood-sessions/", {
+            await fetch(baseUrl+"/data/flood-sessions/", {
                 method: "POST",
                 body: qs.stringify({
                     USERID : req.session.HH_user._id

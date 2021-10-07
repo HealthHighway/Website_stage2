@@ -1,44 +1,46 @@
-<section id="callback-section-id" class="call-back">
-    <div class="cb-text">
-        <h2 class="call-back-head">Still Confused?</h2>
-        <p class="call-back-text">
-            Let us find the best yoga solution for you
-        </p>
-    </div>
-    <div class="cb-form">
-        <input id="phone-num" type="text" placeholder=" Phone number" />
-        <button class="call-back-btn" type="button" onclick="submitCallback()" id="callback-id" >Schedule callBack</button>
-    </div>
+<section  id="callback-section-id" class="call-back">
+  <div class="cb-text">
+      <h2 class="call-back-head">Still Confused?</h2>
+      <p class="call-back-text">
+          Let us find the best yoga solution for you
+      </p>
+  </div>
+  <div class="cb-form">
+      <input id="phone-num" type="text" placeholder="+91  Phone number" />
+      <button class="call-back-btn" type="button" onclick="submitCallback()" id="callback-id">Schedule Callback</button>
+  </div>
 </section>
+
+
 <footer>
-    <div class="footer-nav">
+  <div class="footer-nav">
       <nav>
-        <ul class="nav-links">
-          <li class="desk-links">
-            <a href="/1-on-1-Pricing-Plan">Private Sessions</a>
-          </li>
-          <li class="desk-links">
-            <a href="/Group-Yoga-Classes">Group Sessions</a>
-          </li>
-          <li class="mob-links"><a href="index.html">Home</a></li>
-          <li><a href="https://blogs.healthhighway.co.in/">Blogs</a></li>
-        </ul>
+          <ul class="nav-links">
+              <li>
+                  <a href="https://www.healthhighway.co.in/1-on-1-Pricing-Plan">Private Sessions</a>
+              </li>
+              <li>
+                  <a href="https://www.healthhighway.co.in/Group-Yoga-Classes">Group Sessions</a>
+              </li>
+              <li class="desk-links"><a href="/">Home</a></li>
+              <li class="desk-links"><a href="https://blogs.healthhighway.co.in/">Blogs</a></li>
+          </ul>
       </nav>
       <p class="copyright">
-        <span> &copy; </span> 2021 Health Highway. All Rights Reserved.
+          <span> &copy; </span> 2021 Health Highway. All Rights Reserved.
       </p>
       <nav class="terms-privacy">
-        <ul>
-          <li>
-            <a href="/terms-and-conditions">Terms</a>
-          </li>
-          <li>
-            <a href="/privacy-policy">Privacy</a>
-          </li>
-        </ul>
+          <ul>
+              <li>
+                  <a href="https://www.healthhighway.co.in/terms-and-conditions">Terms</a>
+              </li>
+              <li>
+                  <a href="https://www.healthhighway.co.in/privacy-policy">Privacy</a>
+              </li>
+          </ul>
       </nav>
-    </div>
-  </footer>
+  </div>
+</footer>
 
 <script>
     var modalClose = document.querySelector(".closeSend");
@@ -57,12 +59,11 @@
             const decode = await response.json();
             console.log(decode);
             document.getElementById("callback-id").style.pointerEvents="none";
-            infoShow("/images/callbackBooked.svg", "Callback Scheduled We will Contact you Shortly");
-            // location.reload();
+            infoModalOpenFunction("/images/callbackBooked.svg", "Callback Scheduled We will Contact you Shortly");
         }
         else
         {
-            infoShow("/images/callbackBooked.svg", "Please Enter Correct 10 Digit Number");
+            infoModalOpenFunction("/images/callbackBooked.svg", "Please Enter Correct 10 Digit Number");
         }
     }
     

@@ -77,7 +77,6 @@
 }
 
 .know-more-div {
-  text-align: center;
   margin-top: -80px;
   font-family: Open Sans;
   font-style: normal;
@@ -85,6 +84,11 @@
   font-size: 16px;
   line-height: 22px;
   color: #4ca9ee;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 2300px) {
@@ -233,24 +237,6 @@
     background-size: 57% 35%;
     background-position: 0 390px 0 0;
   }
-
-  .landing-main-center {
-    top: 35%;
-    left: 45%;
-    transform: translate(-35%, -45%);
-  }
-  .instructor,
-  .student {
-    width: 300px;
-    height: 350px;
-  }
-  .landing-main-left {
-    left: 20px;
-  }
-
-  .landing-main-right {
-    right: 20px;
-  }
 }
 
 @media only screen and (max-width: 850px) {
@@ -272,11 +258,6 @@
   .landing-main-text2 {
     font-size: 24px;
   }
-  .landing-main-center {
-    top: 30%;
-    left: 42%;
-    transform: translate(-30%, -42%);
-  }
 }
 
 @media only screen and (max-width: 745px) {
@@ -288,11 +269,6 @@
   .student {
     width: 280px;
     height: 300px;
-  }
-  .landing-main-center {
-    top: 30%;
-    left: 40%;
-    transform: translate(-30%, -40%);
   }
   .landing-main-left {
     top: 280px;
@@ -379,11 +355,6 @@
     width: 150px;
     height: 260px;
   }
-  .landing-main-center {
-    top: 25%;
-    left: 35%;
-    transform: translate(-25%, -35%);
-  }
 }
 
 @media only screen and (max-width: 460px) {
@@ -400,14 +371,6 @@
   }
 }
 
-@media only screen and (max-width: 422px) {
-  .landing-main-center {
-    top: 23%;
-    left: 30%;
-    transform: translate(-23%, -30%);
-  }
-}
-
 @media only screen and (max-width: 400px) {
   #landing-main-div {
     height: 850px;
@@ -417,15 +380,6 @@
 }
 
 @media only screen and (max-width: 380px) {
-  .instructor,
-  .student {
-    width: 120px;
-    height: 240px;
-  }
-  .landing-main-center {
-    left: 28%;
-    transform: translate(-23%, -28%);
-  }
   .know-more-div {
     margin-top: -280px;
   }
@@ -451,11 +405,6 @@
     width: 110px;
     height: 36px;
   }
-  .landing-main-center {
-    width: 300px;
-    left: 26%;
-    transform: translate(-23%, -26%);
-  }
   .pattern {
     height: 420px;
   }
@@ -465,16 +414,7 @@
   #landing-main-div {
     background-image: none;
   }
-  .landing-main-center {
-    width: 300px;
-    left: 24%;
-    transform: translate(-23%, -24%);
-  }
-  .instructor,
-  .student {
-    width: 100px;
-    height: 200px;
-  }
+
   .pattern {
     height: 400px;
   }
@@ -484,11 +424,6 @@
 }
 
 @media only screen and (max-width: 280px) {
-  .landing-main-center {
-    top: 16%;
-    left: 14%;
-    transform: translate(-16%, -14%);
-  }
   .instructor,
   .student {
     width: 80px;

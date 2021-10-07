@@ -7,12 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Username - Dashboard</title>
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/new_navbar.css" />
-    <link rel="stylesheet" href="/css/login.css" />
-    <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/css/search-fliter.css">
-    <link rel="stylesheet" href="/css/fix_budget.css" />
+    <link rel="stylesheet" href="/css/dashboard.css" />
     <link rel="icon" href="/images/hh-favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -36,61 +31,83 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ml-auto">
                             <li style="margin-right: 40px" class="nav-item">
-                                <a href="https://blogs.healthhighway.co.in/" style="cursor: pointer;"
-                    class="nav-link">Blogs</a>
+                                <a href="https://blogs.healthhighway.co.in/" style="cursor: pointer;" class="nav-link">Blogs</a>
                             </li>
                         </ul>
                     </div>
-                      <button
-                          id="landing-joinus"
-                          type="button"
-                          class="btn btn-light"
-                          onclick="location.href='/logout'"
-                        >
+                    <button id="landing-joinus" type="button" class="btn btn-light" onclick="location.href='/logout'">
                           Log Out
                       </button>
                 </div>
             </nav>
-          </div>
+        </div>
     </header>
     <main>
-        <div class="fixed-budget-con">
+        <section class="fixed-budget-con">
             <div class="fixed-budget">
-                <h3>My Sessions</h3><br><br>
+                <h3>Have a fixed budget for fitness ?</h3>
+                <p>
+                    Dont worry we got you covered. We bring you a variety of group sessions that suits your need.
+                </p>
             </div>
             <div class="fix-grp-card-container">
-                <% GROUP.forEach(session => { %>
-                        <div style="cursor: pointer;" onclick="location.href='/live-class/<%= session.VIDEO_CHANNEL%>'" class="new-grp-card">
-                            <img src=<%= session.IMG %> alt="" style="width:100%; height:auto" />
-                            <div class="grp-card-txt">
-                            <div class="card-title">
-                                <h3><%= session.SESSION_NAME %></h3>
-                                <p>by <%= session.TNAME %></p>
-                            </div>
-                            <div class="session-time">
-                                <p><%= session.TIME %></p>
-                            </div>
-                            </div>
+                <div class="new-grp-card">
+                    <img src="https://github.com/vxdhu/Healthhighway-Compiled/blob/main/images/image2.png?raw=true" alt="" />
+                    <div class="grp-card-txt">
+                        <div class="card-title">
+                            <h3>Fitness Yoga</h3>
+                            <p>by Yogachariya Sandeep</p>
                         </div>
-                <% }) %>
+                        <div class="session-time">
+                            <p>6 AM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-grp-card">
+                    <img src="https://github.com/vxdhu/Healthhighway-Compiled/blob/main/images/image2.png?raw=true" alt="" />
+                    <div class="grp-card-txt">
+                        <div class="card-title">
+                            <h3>Fitness Yoga</h3>
+                            <p>by Yogachariya Sandeep</p>
+                        </div>
+                        <div class="session-time">
+                            <p>6 AM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="new-grp-card">
+                    <img src="https://github.com/vxdhu/Healthhighway-Compiled/blob/main/images/image2.png?raw=true" alt="" />
+                    <div class="grp-card-txt">
+                        <div class="card-title">
+                            <h3>Fitness Yoga</h3>
+                            <p>by Yogachariya Sandeep</p>
+                        </div>
+                        <div class="session-time">
+                            <p>6 AM</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+
         </div>
+        <section class="download-app">
+            <h2 id="download-app-heading">
+                Download <span>Health</span>
+                <span class="highway-spn">Highway</span> App
+            </h2>
+            <div class="download-img">
+                <img src="/images/dwnld-app.svg" alt="" />
+            </div>
+            <p>For enhanced experience on your mobile phone</p>
+            <a href="#" class="download-now-btn">Download Now</a>
+        </section>
     </main>
 
-    <section class="download-app">
-        <h2 id="download-app-heading">
-          Download <span>Health</span>
-          <span class="highway-spn">Highway</span> App
-        </h2>
-        <div class="download-img">
-          <img src="images/dwnld-app.svg" alt="" />
-        </div>
-        <p>For enhanced experience on your mobile phone</p>
-        <a href="#" class="download-now-btn">Download Now</a>
-      </section>
 
-                
-                <script type="text/javascript" src="/js/landing.js"></script>
+
+
+    <script type="text/javascript" src="/js/landing.js"></script>
 </body>
 
 </html>

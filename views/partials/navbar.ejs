@@ -1,51 +1,53 @@
 <div class="nav-landing">
   <nav class="navbar navbar-expand-lg navbar-light" id="navbar-landing" style="
   position: fixed;
+  background-color:white;
   width: 100vw !important;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 ">
       <div id="navbar-container" class="container-fluid navbar-container-unscrolled">
-          <a class="navbar-brand" href="/">
-              <img src="/images/logo.svg" alt="Health Highway Logo" />
-              <div class="logo-text">
-                  <span style="color: #4ca9ee" class="logo-span">Health</span>
-                  <span style="color: #29e7cd" class="logo-span"> Highway</span>
-              </div>
+          <a href="/">
+              <img src="https://raw.githubusercontent.com/vxdhu/Healthhighway-Compiled/f73760a70a6f5193417b424f04092339afbf54f4/images/logoDesktop.svg" alt="Health Highway Logo" class="logo" />
           </a>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                   <li style="margin-right: 40px" class="nav-item">
-                      <a href="https://blogs.healthhighway.co.in/" style="cursor: pointer;"  
-          class="nav-link">Blogs</a>
+                      <a href="https://blogs.healthhighway.co.in/" class="nav-link">Blogs</a>
                   </li>
-                  <li style="margin-right: 40px" class="nav-item">
-                      <a onclick="scrolltofunc('callback-section-id')" style="cursor: pointer;"
-          class="nav-link">Support</a>
-                  </li>
-                  <% if(_id.length == 0){ %>
-                    <li style="margin-right: 40px" class="nav-item">
-                      <a onclick="modalOpenFunction();" style="font-weight: 600 !important; cursor: pointer;"
-                        class="nav-link">Login</a>
-                    </li>
-                   <% }  %>
-              </ul>
-          </div>
-          <% if(_id.length == 0){ %>
-            <button
-                id="landing-joinus"
-                type="button"
-                class="btn btn-light"
-                onclick="modalOpenFunction();"
-              >
-                Join Us
-            </button>
-          <% }else{ %>
-            <button onclick="location.href='/my-profile'" class="loginIcon" style="border: none!important; background-color: #fff!important; cursor: pointer;" >
-                <img src="/images/user.png" alt="user"/>
-            </button>
-          <% } %>
-      </div>
-
-  </nav>
+      <li style="margin-right: 40px" class="nav-item">
+        <a
+          style="cursor: pointer;"
+          onclick="scrollEase(1000, 'callback-section-id')"
+          class="nav-link"
+          >Support</a
+        >
+      </li>
+      <% if(_id.length == 0){ %>
+        <li style="margin-right: 40px" class="nav-item">
+          <a 
+            onclick="modalOpenFunction()"
+            style="font-weight: 600 !important; cursor: pointer;"
+            class="nav-link"
+            >Login</a
+          >
+        </li>
+       <% }  %>
+    </ul>
+  </div>
+  <% if(_id.length == 0){ %>
+    <button
+        id="landing-joinus"
+        type="button"
+        class="btn btn-light"
+        onclick="modalOpenFunction();"
+      >
+        Join Us
+    </button>
+  <% }else{ %>
+    <button onclick="location.href='/my-profile'" class="loginIcon" style="border: none!important; background-color: #fff!important; cursor: pointer;" >
+        <img src="/images/user.png" alt="user"/>
+    </button>
+  <% } %>
 </div>
-
+</nav>
+</div>

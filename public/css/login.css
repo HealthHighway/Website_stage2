@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;400;500&family=Open+Sans:wght@300;600&display=swap");
 
-.login-modal-bg, .info-modal-bg {
+.login-modal-bg {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@
   z-index: -1 !important;
 }
 
-.login-modal, .info-modal {
+.login-modal {
   background-color: #fff;
   width: 422px;
   display: flex;
@@ -38,6 +38,31 @@
   z-index: 100;
   border-radius: 15px;
   height: auto;
+}
+
+.closeSend {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 28px;
+  right: 28px;
+  cursor: pointer;
+}
+
+.closeSend:before,
+.closeSend:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 25px;
+  width: 3px;
+  background-color: #b2b2b2;
+}
+.closeSend:before {
+  transform: rotate(45deg);
+}
+.closeSend:after {
+  transform: rotate(-45deg);
 }
 
 .close {
@@ -75,17 +100,9 @@
 }
 
 .loginLogo {
-  margin-top: 42px;
+  margin-top: 50px;
   width: 120px;
   height: 80px;
-}
-
-.loginLogoText {
-  font-size: 2rem;
-  margin-top: 14px;
-  font-family: Open Sans;
-  font-style: normal;
-  font-weight: 600;
 }
 
 .loginInput {
@@ -206,7 +223,8 @@
   font-weight: bold;
 }
 
-.OTPTitle {
+.OTPTitle,
+.nameTitle {
   display: flex;
   align-items: center;
   margin-bottom: 80px;
@@ -345,8 +363,164 @@ input[type="number"]:nth-child(n + 4) {
   width: 14px;
 }
 
+.info-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.4s;
+  backdrop-filter: blur(5px);
+  z-index: 200;
+}
+
+.info-modal {
+  background-color: #fff;
+  width: 422px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 100;
+  border-radius: 15px;
+  height: auto;
+}
+
+#info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 0;
+}
+
+#info-div img {
+  margin-top: 60px;
+  max-width: 360px;
+  max-height: 300px;
+}
+
+#info-div p {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: center;
+  color: #000000;
+  width: 18vw;
+  margin-top: 15px;
+}
+
+.info-bg-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.textLogo {
+  margin-top: 5px;
+}
+
+.down-arrow {
+  border: solid #4ca9ee;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+#name {
+  display: none;
+}
+
+.nameImg {
+  margin: 80px 0 32px 0;
+}
+
+.nameText {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #29e7cd;
+  width: 311px;
+  margin-bottom: 32px;
+}
+
+.nameInput {
+  width: 262px;
+  height: 38px;
+  background: #ebf0f4;
+  border-radius: 4.58333px;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+}
+
+.nameInput::placeholder {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #535556;
+}
+
+.nameTitle {
+  left: 0;
+}
+
+#continueName {
+  margin-bottom: 20px;
+  width: 241px;
+}
+
+@media only screen and (max-width: 1440px) {
+  #info-div p {
+    width: 20vw;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #info-div p {
+    width: 25vw;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #info-div p {
+    width: 32vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #info-div p {
+    width: 40vw;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  #info-div p {
+    width: 45vw;
+  }
+}
+
 @media only screen and (max-width: 540px) {
   .login-modal {
+    width: 360px;
+  }
+  .info-modal {
     width: 360px;
   }
   .loginInput {
@@ -371,14 +545,23 @@ input[type="number"]:nth-child(n + 4) {
   .OTPTitle {
     margin-left: 1px;
   }
+  .nameTitle {
+    margin-left: 48px;
+  }
   .loginInputBar::placeholder {
     font-size: 0.7rem;
+  }
+  #info-div p {
+    width: 54vw;
+  }
+  .nameText {
+    width: 280px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .loginLogo {
-    margin-top: 28px;
+    margin-top: 40px;
     width: 100px;
     height: 50px;
   }
@@ -388,9 +571,6 @@ input[type="number"]:nth-child(n + 4) {
   }
   #loginContinue {
     margin-top: 15px;
-  }
-  .loginLogoText {
-    font-size: 1.6rem;
   }
   .loginButton {
     font-size: 1.2rem;
@@ -405,10 +585,23 @@ input[type="number"]:nth-child(n + 4) {
     font-size: 20px;
     width: 300px;
   }
+  #info-div p {
+    width: 64vw;
+  }
+  #info-div img {
+    max-width: 200px;
+    max-height: 250px;
+  }
+  .textLogo {
+    height: 28px;
+  }
 }
 
 @media only screen and (max-width: 420px) {
   .login-modal {
+    width: 320px;
+  }
+  .info-modal {
     width: 320px;
   }
   .loginInput {
@@ -424,7 +617,9 @@ input[type="number"]:nth-child(n + 4) {
   #OTP,
   .OTPText,
   .enterText,
-  .OTPPara {
+  .OTPPara,
+  .nameInput,
+  .nameText {
     width: 240px;
   }
   .loginCondition {
@@ -437,16 +632,25 @@ input[type="number"]:nth-child(n + 4) {
     width: 80px;
     height: 40px;
   }
-  .loginLogoText {
-    font-size: 1.4rem;
-  }
   .loginInputBar {
     font-size: 1.2rem;
+  }
+  #info-div p {
+    width: 72vw;
+  }
+  .textLogo {
+    height: 22px;
+  }
+  #continueName {
+    width: 230px;
   }
 }
 
 @media only screen and (max-width: 360px) {
   .login-modal {
+    width: 300px;
+  }
+  .info-modal {
     width: 300px;
   }
   .OTPPara,
@@ -455,6 +659,10 @@ input[type="number"]:nth-child(n + 4) {
   .enterText,
   .OTPPara {
     width: 260px;
+  }
+  .nameInput,
+  .nameText {
+    width: 230px;  
   }
   .loginCondition {
     width: 260px;
@@ -477,10 +685,30 @@ input[type="number"]:nth-child(n + 4) {
     font-size: 20px;
     width: 240px;
   }
+  .nameImg {
+    width: 100px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  .nameText {
+    margin-bottom: 20px;
+  }
+  #continueName {
+    margin: 20px 0 0 0;
+  }
+  #continueName {
+    width: 200px;
+  }
+  .nameTitle {
+    margin-left: 32px;
+  }
 }
 
 @media only screen and (max-width: 320px) {
   .login-modal {
+    width: 260px;
+  }
+  .info-modal {
     width: 260px;
   }
   .loginInput {
@@ -495,7 +723,9 @@ input[type="number"]:nth-child(n + 4) {
   #OTP,
   .OTPText,
   .enterText,
-  .OTPPara {
+  .OTPPara,
+  .nameInput,
+  .nameText {
     width: 210px;
   }
   .loginCondition {
@@ -510,10 +740,17 @@ input[type="number"]:nth-child(n + 4) {
   .OTPTitle {
     margin-top: 40px;
   }
+  #info-div img {
+    max-width: 180px;
+    max-height: 200px;
+  }
 }
 
 @media only screen and (max-width: 300px) {
   .login-modal {
+    width: 250px;
+  }
+  .info-modal {
     width: 250px;
   }
   .loginInput {
@@ -526,7 +763,9 @@ input[type="number"]:nth-child(n + 4) {
   #OTP,
   .OTPText,
   .enterText,
-  .OTPPara {
+  .OTPPara,
+  .nameInput,
+  .nameText {
     width: 220px;
   }
   .loginCondition {
@@ -547,13 +786,4 @@ input[type="number"]:nth-child(n + 4) {
     margin-top: 32px;
     margin-left: 10px;
   }
-}
-
-.down-arrow {
-  border: solid #4ca9ee;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 4px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
 }
